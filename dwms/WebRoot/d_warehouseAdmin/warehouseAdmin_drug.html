@@ -1,0 +1,2756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta charset="utf-8" />
+<title>欢迎进入神农连锁药品仓库管理系统</title>
+<meta name="description" content="overview &amp; stats" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+<!-- 引用css -->
+		<link rel="stylesheet" href="../plugins/layui/css/layui.css" />
+		<link rel="stylesheet" href="../plugins/time_picker/lyz.calendar.css" />
+		<link rel="stylesheet" href="../plugins/ace/assets/css/chosen.css" />
+		<link rel="stylesheet" href="../plugins/ace/assets/css/datepicker.css" />
+		<link rel="stylesheet" href="../plugins/ace/assets/css/bootstrap-timepicker.css" />
+		<link rel="stylesheet" href="../plugins/ace/assets/css/daterangepicker.css" />
+		<link rel="stylesheet" href="../plugins/ace/assets/css/bootstrap-datetimepicker.css" />
+<!-- 引用结束 -->
+<!-- 引用js -->
+		<script src="../plugins/time_picker/lyz.calendar.min.js" type="text/javascript"></script>
+<!-- 引用结束 -->
+<!-- bootstrap & fontawesome -->
+<link rel="stylesheet" href="../plugins/ace/assets/css/bootstrap.css" />
+<link rel="stylesheet" href="../plugins/ace/assets/css/font-awesome.css" />
+<link rel="stylesheet" href="../plugins/ace/assets/css/jquery-ui.css" />
+<link rel="stylesheet" href="../plugins/ace/assets/css/bootstrap-timepicker.css" />
+
+<link rel="stylesheet" href="../plugins/ace/assets/css/bootstrap-datetimepicker.css" />
+<link rel="stylesheet"
+	href="../plugins/laypage-v1.3/laypage/skin/laypage.css" />
+
+<link rel="stylesheet" href="../plugins/ace/assets/css/ui.jqgrid.css" />
+<!--~~~~-->
+
+<!-- page specific plugin styles -->
+<!-- text fonts -->
+<link rel="stylesheet" href="../plugins/ace/assets/css/ace-fonts.css" />
+
+<!-- ace styles -->
+<link rel="stylesheet" href="../plugins/ace/assets/css/ace.css"
+	class="ace-main-stylesheet" id="main-ace-style" />
+
+<link rel="stylesheet" href="../plugins/layer/skin/layer.css">
+<link rel="stylesheet" href="../plugins/layer/skin/layer.ext.css">
+<!-- //zTree_v3 -->
+<link rel="stylesheet"
+	href="../plugins/zTree_v3/css/metroStyle/metroStyle.css" type="text/css">
+<link rel="stylesheet"
+	href="../plugins/zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<style type="text/css">
+.ztree li span.button.add {
+	margin-left: 2px;
+	margin-right: -1px;
+	background-position: -144px 0;
+	vertical-align: top;
+	*vertical-align: middle
+}
+</style>
+
+<!--[if lte IE 9]>
+			<link rel="stylesheet" href="plugins/ace/assets/css/ace-part2.css" class="ace-main-stylesheet" />
+		<![endif]-->
+
+<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="plugins/ace/assets/css/ace-ie.css" />
+		<![endif]-->
+
+<!-- inline styles related to this page -->
+
+<!-- ace settings handler -->
+<script src="../plugins/ace/assets/js/ace-extra.js"></script>
+<script src="../plugins/ace/assets/js/jquery1x.js"></script>
+
+<script src="../plugins/laypage-v1.3/laypage/laypage.js"></script>
+<script src="../plugins/echart/echarts-all.js" type="text/javascript"></script>
+<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+<!--[if lte IE 8]>
+		<script src="plugins/ace/assets/js/html5shiv.js"></script>
+		<script src="plugins/ace/assets/js/respond.js"></script>
+		
+		<![endif]-->
+<style type="text/css">
+.ztree span {
+	font-size: 15px;
+	height: 2em;
+}
+
+.ztree li {
+	margin-top: 5px;
+}
+</style>
+</head>
+
+<body class="no-skin">
+	<!-- #section:basics/navbar.layout -->
+	<div id="navbar" class="navbar navbar-default">
+		<script type="text/javascript">
+			try {
+				ace.settings.check('navbar', 'fixed')
+			} catch (e) {
+			}
+		</script>
+
+		<div class="navbar-container" id="navbar-container">
+			<button type="button" class="navbar-toggle menu-toggler pull-left"
+				id="menu-toggler" data-target="#sidebar">
+				<span class="sr-only">Toggle sidebar</span> <span class="icon-bar"></span>
+				<span class="icon-bar"></span> <span class="icon-bar"></span>
+			</button>
+
+			<!-- /section:basics/sidebar.mobile.toggle -->
+			<div class="navbar-header pull-left">
+				<!-- #section:basics/navbar.layout.brand -->
+				<a href="/dwms/warehouseAdmin" class="navbar-brand"> <small> <i
+						class="fa fa-key"></i> 神农连锁药品仓库管理系统 </small> </a>
+
+				<!-- /section:basics/navbar.layout.brand -->
+
+				<!-- #section:basics/navbar.toggle -->
+
+				<!-- /section:basics/navbar.toggle -->
+			</div>
+
+			<!-- #section:basics/navbar.dropdown -->
+			<div class="navbar-buttons navbar-header pull-right"
+				role="navigation">
+				<ul class="nav ace-nav">
+					<!-- #section:basics/navbar.user_menu -->
+					<li class="light-blue"><a data-toggle="dropdown" href="#"
+						class="dropdown-toggle"> <img class="nav-user-photo"
+							src="../plugins/ace/assets/avatars/user.jpg" alt="Jason's Photo" />
+							<span class="user-info"> <small>欢迎您</small><small id="login_user"> 
+							
+							</small></span> <i 
+								class="ace-icon fa fa-caret-down"></i> </a>
+						<ul
+							class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+							<li><a href="javascript:personInfo()"> <i
+									class="ace-icon fa fa-user"></i> 查看个人资料 </a></li>
+							<li><a href="javascript:updatePerson()"> <i
+									class="ace-icon fa fa-cog"></i> 修改登录密码 </a></li>
+							<li class="divider"></li>
+
+							<li><a href="javascript:signout()" > <i
+									class="ace-icon fa fa-power-off"></i> 退出 </a></li>
+						</ul></li>
+
+					<!-- /section:basics/navbar.user_menu -->
+				</ul>
+			</div>
+			<!-- /section:basics/navbar.dropdown -->
+		</div>
+		<!-- /.navbar-container -->
+	</div>
+	<!-- /section:basics/navbar.layout -->
+	<div class="main-container" id="main-container">
+		<script type="text/javascript">
+			try {
+				ace.settings.check('main-container', 'fixed')
+			} catch (e) {
+			}
+		</script>
+		<div id="sidebar" class="sidebar responsive">
+			<script type="text/javascript">
+				try {
+					ace.settings.check('sidebar', 'fixed')
+				} catch (e) {
+				}
+			</script>
+
+			<div class="sidebar-shortcuts" id="sidebar-shortcuts">
+				<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+					<button class="btn btn-success" id="signout" title="注销">
+						<i class="ace-icon fa fa-sign-out"></i>
+					</button>
+
+					<button class="btn btn-info" id="changePass" title="修改密码"
+						onclick="updatePerson()">
+						<i class="ace-icon fa fa-pencil-square-o "></i>
+					</button>
+
+					<!-- #section:basics/sidebar.layout.shortcuts -->
+					<button class="btn btn-warning" id="console" title="首页">
+						<i class="ace-icon fa fa-home"></i>
+					</button>
+
+					<button class="btn btn-danger" id="flush" title="刷新">
+						<i class="ace-icon fa fa-refresh"></i>
+					</button>
+
+					<!-- /section:basics/sidebar.layout.shortcuts -->
+				</div>
+
+				<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+					<span class="btn btn-success"></span> <span class="btn btn-info"></span>
+
+					<span class="btn btn-warning"></span> <span class="btn btn-danger"></span>
+				</div>
+			</div>
+			<!-- /.sidebar-shortcuts -->
+
+			<ul class="nav nav-list">
+				<li ><a id="warehouseAdmin_main"> <i
+						class="menu-icon fa fa-home"></i> <span class="menu-text">
+							首页 </span>
+				</a> <b class="arrow"></b></li>
+
+				<li class="active"><a id="warehouseAdmin_drug"> <i class="menu-icon fa fa-list"></i>
+						<span class="menu-text"> 药品管理 </span>
+				</a> <b class="arrow"></b></li>
+				<li ><a id="warehouseAdmin_inventory"> <i
+						class="menu-icon fa fa-tag"></i> <span class="menu-text">
+							库存管理 </span>
+				</a> <b class="arrow"></b></li>
+
+				<li><a id="warehouseAdmin_supplier"> <i
+						class="menu-icon fa fa-calendar"></i> <span class="menu-text">
+							供应商管理 </span>
+				</a> <b class="arrow"></b></li>
+				
+				<li><a id="warehouseAdmin_inout"> <i
+						class="menu-icon fa fa-pencil-square-o"></i> <span class="menu-text">
+							出入库 </span>
+				</a> <b class="arrow"></b></li>
+				
+			</ul>
+			<!-- /.nav-list -->
+
+			<!-- #section:basics/sidebar.layout.minimize -->
+			<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+				<i class="ace-icon fa fa-angle-double-left"
+					data-icon1="ace-icon fa fa-angle-double-left"
+					data-icon2="ace-icon fa fa-angle-double-right"></i>
+			</div>
+
+			<!-- /section:basics/sidebar.layout.minimize -->
+			<script type="text/javascript">
+				try {
+					ace.settings.check('sidebar', 'collapsed')
+				} catch (e) {
+				}
+			</script>
+		</div>
+		<!-- /section:basics/sidebar -->
+		<div class="main-content">
+			<div id="main-content-inner">
+				<!-- #section:basics/content.breadcrumbs -->
+				<div class="breadcrumbs" id="breadcrumbs">
+					<script type="text/javascript">
+						try {
+							ace.settings.check('breadcrumbs', 'fixed')
+						} catch (e) {
+						}
+					</script>
+					<ul class="breadcrumb">
+						<li><i class="ace-icon fa fa-home home-icon"></i> <a href="/dwms/warehouseAdmin">首页</a>
+						</li>
+						<li><span>药品管理</span></li>
+					</ul>
+					<!-- /.breadcrumb -->
+				</div>
+			</div>
+			
+			<!-- PAGE CONTENT BEGINS -->
+			<div class="page-content">
+				
+				<div class="col-xs-12">
+					
+						<div class="row">
+							<div class="clearfix"></div>
+							<div class="tabbable">
+							<!-- Only required for left/right tabs -->
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#tab1" data-toggle="tab" aria-expanded="true">处方药</a></li>
+								<li><a href="#tab2" data-toggle="tab"aria-expanded="false" onclick="javascript:show2();">非处方药</a></li>
+								<li><a href="#tab3" data-toggle="tab"aria-expanded="false" onclick="javascript:show3();">其他药</a></li>
+							</ul>
+							</div>
+							
+							<div class="tab-content">
+								<div class="tab-pane active" id="tab1">
+										<div class="table-header">药品管理页面 ——— 处方药</div>
+										<div class="widget">
+										<div class="widget-main">
+											<div class="row">
+											<div class="col-sm-8">
+											<form id="selefrom" class="form-inline" action="rzcksele" method="post">
+												<input type="search" class="form-control input-sm"
+												placeholder="请输入药品名.." aria-controls="dynamic-table" id="dname1">
+												<input type="search" class="form-control input-sm"
+												placeholder="请输入药品批次.." aria-controls="dynamic-table" id="dbatch1">
+												<input type="search" class="form-control input-sm"
+												placeholder="请输入药品存放位置.." aria-controls="dynamic-table" id="dlocation1">
+												<input type="search" class="form-control input-sm"
+												placeholder="请输入药品分类.." aria-controls="dynamic-table" id="dclass1">
+												<a onclick="selectDrugs1()" class="btn btn-info btn-sm">查询</a>
+												<input type="reset" onclick="reset1()" class="btn btn-info btn-sm" value="重置">
+											</form>
+											<div class="col-xs-1 hide">
+												<form id="upload_fiel" enctype="multipart/form-data">
+					 								<input type="file" name="file123" lay-type="file" class="layui-upload-file hide" id="aaa">
+					 							</form>
+						 					</div>
+											</div>
+												<div class="pull-right">
+												<a onclick="importcfdrug()" class="btn btn-mini btn-primary" style="width:100px;height:31px">导入药品</a>
+												<a href="exportdrugexcel" class="btn btn-mini btn-primary" style="width:100px;height:31px">导出药品</a>
+												<a href="javascript:addcfDrug()" class="btn btn-mini btn-primary" style="width:100px;height:31px">添加药品</a>
+												</div>
+											</div>
+										</div>
+										</div>
+										<div id="chufanglist" class="row">
+											<div class="col-xs-12">
+							
+												<div class="row">
+													<div class="col-xs-12">
+														<table class="table table-striped table-bordered table-hover"
+															id="table1">
+														<!--id="simple-table"  -->
+														<thead>
+															<tr role="row">
+											  			    <!-- <th><label> <input type="checkbox" class="ace" /> <span class="lbl"></span> </label></th> -->
+														    <th class="hidden-480"><span>药品序号</span></th>
+														    <th class="hidden-480"><span>药品名</span></th>
+														    <th class="hidden-480"><span>药品规格</span></th>
+														    <th class="hidden-480"><span>药品分类</span></th>
+															<th class="hidden-480"><span>药品单价 /元</span></th>
+															<th class="hidden-480"><span>药品供货商</span></th>
+															<th class="hidden-480"><span>药品批次</span></th>
+															<th class="hidden-480"><span>药品存放位置</span></th>
+															<th class="hidden-480"><span>操作</span></th>
+															</tr>
+														</thead>
+														<tbody id="Table_1"> </tbody>
+														</table>
+														<div id="no1" class="alert alert-info hide">无数据</div>
+													</div>
+													<!-- /.col -->
+												</div>
+							 
+							 
+											<div class="col-xs-12">
+
+												<div class="dataTables_paginate paging_simple_numbers  pull-left">
+												<label>每页显示<select name="dynamic-table_length" 
+												id="sel1" onchange="chInfNumber1()">
+														<option value="10">10</option>
+														<option value="20">20</option>
+														<option value="50">50</option>
+														<option value="100">100</option>
+														</select>条信息</label>
+												</div>
+												<div class="dataTables_paginate paging_simple_numbers "
+													id="dynamic-table_paginate">
+													<ul class="pagination" id="pagefoot1"></ul>
+												</div>
+											</div>
+							   
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane" id="tab2">
+									<div class="table-header">药品管理页面 ——— 非处方药</div>
+									<div class="widget">
+										<div class="widget-main">
+											<div class="row">
+											<div class="col-sm-8">
+											<form id="selefrom2" class="form-inline" action="rzcksele" method="post">
+												<input type="search" class="form-control input-sm"
+												placeholder="请输入药品名.." aria-controls="dynamic-table" id="dname2">
+												<input type="search" class="form-control input-sm"
+												placeholder="请输入药品批次.." aria-controls="dynamic-table" id="dbatch2">
+												<input type="search" class="form-control input-sm"
+												placeholder="请输入药品存放位置.." aria-controls="dynamic-table" id="dlocation2">
+												<input type="search" class="form-control input-sm"
+												placeholder="请输入药品分类.." aria-controls="dynamic-table" id="dclass2">
+												<a onclick="selectDrugs2()" class="btn btn-info btn-sm">查询</a>
+												<input type="reset" onclick="reset2()" class="btn btn-info btn-sm" value="重置">
+											</form>
+											</div>
+												<div class="pull-right">
+												<a href="exportdrugexcel" class="btn btn-mini btn-primary" style="width:100px;height:31px">导出药品</a>
+												<a href="javascript:addfcfDrug()" class="btn btn-mini btn-primary" style="width:100px;height:31px">添加药品</a>
+												</div>
+											</div>
+										</div>
+										</div>
+										<div id="feichufanglist" class="row">
+											<div class="col-xs-12">
+							
+												<div class="row">
+													<div class="col-xs-12">
+														<table class="table table-striped table-bordered table-hover"
+															id="table2">
+														<!--id="simple-table"  -->
+														<thead>
+															<tr role="row">
+											  			    <!-- <th><label> <input type="checkbox" class="ace" /> <span class="lbl"></span> </label></th> -->
+														    <th class="hidden-480"><span>药品序号</span></th>
+														    <th class="hidden-480"><span>药品名</span></th>
+														    <th class="hidden-480"><span>药品规格</span></th>
+														    <th class="hidden-480"><span>药品分类</span></th>
+															<th class="hidden-480"><span>药品单价 /元</span></th>
+															<th class="hidden-480"><span>药品供货商</span></th>
+															<th class="hidden-480"><span>药品批次</span></th>
+															<th class="hidden-480"><span>药品存放位置</span></th>
+															<th class="hidden-480"><span>操作</span></th>
+															</tr>
+														</thead>
+														<tbody id="Table_2"> </tbody>
+														</table>
+														<div id="no2" class="alert alert-info hide">无数据</div>
+													</div>
+													<!-- /.col -->
+												</div>
+							 
+							 
+											<div class="col-xs-12">
+
+												<div class="dataTables_paginate paging_simple_numbers  pull-left">
+												<label>每页显示<select name="dynamic-table_length" 
+												id="sel2" onchange="chInfNumber2()">
+														<option value="10">10</option>
+														<option value="20">20</option>
+														<option value="50">50</option>
+														<option value="100">100</option>
+														</select>条信息</label>
+												</div>
+												<div class="dataTables_paginate paging_simple_numbers "
+													id="dynamic-table_paginate">
+													<ul class="pagination" id="pagefoot2"></ul>
+												</div>
+											</div>
+							   
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane" id="tab3">
+									<div class="table-header">药品管理页面 ——— 其他药</div>
+									<div class="widget">
+										<div class="widget-main">
+											<div class="row">
+											<div class="col-sm-8">
+											<form id="selefrom3" class="form-inline" action="rzcksele" method="post">
+												<input type="search" class="form-control input-sm"
+												placeholder="请输入药品名.." aria-controls="dynamic-table" id="dname3">
+												<input type="search" class="form-control input-sm"
+												placeholder="请输入药品批次.." aria-controls="dynamic-table" id="dbatch3">
+												<input type="search" class="form-control input-sm"
+												placeholder="请输入药品存放位置.." aria-controls="dynamic-table" id="dlocation3">
+												<input type="search" class="form-control input-sm"
+												placeholder="请输入药品分类.." aria-controls="dynamic-table" id="dclass3">
+												<a onclick="selectDrugs3()" class="btn btn-info btn-sm">查询</a>
+												<input type="reset" onclick="reset3()" class="btn btn-info btn-sm" value="重置">
+											</form>
+											</div>
+												<div class="pull-right">
+												<a href="exportdrugexcel" class="btn btn-mini btn-primary" style="width:100px;height:31px">导出药品</a>
+												<a href="javascript:addoDrug()" class="btn btn-mini btn-primary" style="width:100px;height:31px">添加药品</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="otherlist" class="row">
+											<div class="col-xs-12">
+							
+												<div class="row">
+													<div class="col-xs-12">
+														<table class="table table-striped table-bordered table-hover"
+															id="table3">
+														<!--id="simple-table"  -->
+														<thead>
+															<tr role="row">
+											  			    <!-- <th><label> <input type="checkbox" class="ace" /> <span class="lbl"></span> </label></th> -->
+														    <th class="hidden-480"><span>药品序号</span></th>
+														    <th class="hidden-480"><span>药品名</span></th>
+														    <th class="hidden-480"><span>药品规格</span></th>
+														    <th class="hidden-480"><span>药品分类</span></th>
+															<th class="hidden-480"><span>药品单价 /元</span></th>
+															<th class="hidden-480"><span>药品供货商</span></th>
+															<th class="hidden-480"><span>药品批次</span></th>
+															<th class="hidden-480"><span>药品存放位置</span></th>
+															<th class="hidden-480"><span>操作</span></th>
+															</tr>
+														</thead>
+														<tbody id="Table_3"> </tbody>
+														</table>
+														<div id="no3" class="alert alert-info hide">无数据</div>
+													</div>
+													<!-- /.col -->
+												</div>
+							 
+							 
+											<div class="col-xs-12">
+
+												<div class="dataTables_paginate paging_simple_numbers  pull-left">
+												<label>每页显示<select name="dynamic-table_length" 
+												id="sel3" onchange="chInfNumber3()">
+														<option value="10">10</option>
+														<option value="20">20</option>
+														<option value="50">50</option>
+														<option value="100">100</option>
+														</select>条信息</label>
+												</div>
+												<div class="dataTables_paginate paging_simple_numbers "
+													id="dynamic-table_paginate">
+													<ul class="pagination" id="pagefoot3"></ul>
+												</div>
+											</div>
+							   
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					<br>
+					
+			
+				</div>
+			</div>	
+		</div>
+		<!-- /.main-content -->
+		<div class="footer">
+			<div class="footer-inner">
+				<!-- #section:basics/footer -->
+				<div class="footer-content">
+					<span class="bigger-120"> <span class="red">神农连锁药品仓库管理系统</span>
+						&copy;2017 </span> &nbsp; &nbsp;版本：v2017-4-14
+				</div>
+
+				<!-- /section:basics/footer -->
+			</div>
+		</div>
+
+		<a href="#" id="btn-scroll-up"
+			class="btn-scroll-up btn btn-sm btn-inverse"> <i
+			class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i> </a>
+	</div>
+	<!-- /.main-container -->
+	<!-- basic scripts -->
+	<!--[if !IE]> -->
+	<script type="text/javascript">
+		window.jQuery
+				|| document
+						.write("<script src='plugins/ace/assets/js/jquery.js'>"
+								+ "<"+"/script>");
+	</script>
+
+	<!-- <![endif]-->
+
+	<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='plugins/ace/assets/js/jquery1x.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+	<script type="text/javascript">
+		if ('ontouchstart' in document.documentElement)
+			document
+					.write("<script src='plugins/ace/assets/js/jquery.mobile.custom.js'>"
+							+ "<"+"/script>");
+	</script>
+
+	<script src="../plugins/ace/assets/js/bootstrap.js"></script>
+	<script src="../plugins/ace/assets/js/jquery-ui.js"></script>
+	<script src="../plugins/ace/assets/js/jquery.ui.touch-punch.js"></script>
+
+	<!-- page specific plugin scripts -->
+	<script src="../plugins/ace/assets/js/dataTables/jquery.dataTables.js"></script>
+	<script
+		src="../plugins/ace/assets/js/dataTables/jquery.dataTables.bootstrap.js"></script>
+	<script
+		src="../plugins/ace/assets/js/dataTables/extensions/TableTools/js/dataTables.tableTools.js"></script>
+	<script
+		src="../plugins/ace/assets/js/dataTables/extensions/ColVis/js/dataTables.colVis.js"></script>
+
+	<!-- ace scripts -->
+	<script src="../plugins/ace/assets/js/ace/elements.scroller.js"></script>
+	<script src="../plugins/ace/assets/js/ace/elements.colorpicker.js"></script>
+	<script src="../plugins/ace/assets/js/ace/elements.fileinput.js"></script>
+	<script src="../plugins/ace/assets/js/ace/elements.typeahead.js"></script>
+	<script src="../plugins/ace/assets/js/ace/elements.wysiwyg.js"></script>
+	<script src="../plugins/ace/assets/js/ace/elements.spinner.js"></script>
+	<script src="../plugins/ace/assets/js/ace/elements.treeview.js"></script>
+	<script src="../plugins/ace/assets/js/ace/elements.wizard.js"></script>
+	<script src="../plugins/ace/assets/js/ace/elements.aside.js"></script>
+	<script src="../plugins/ace/assets/js/ace/ace.js"></script>
+	<script src="../plugins/ace/assets/js/ace/ace.ajax-content.js"></script>
+	<script src="../plugins/ace/assets/js/ace/ace.touch-drag.js"></script>
+	<script src="../plugins/ace/assets/js/ace/ace.sidebar.js"></script>
+	<script src="../plugins/ace/assets/js/ace/ace.sidebar-scroll-1.js"></script>
+	<script src="../plugins/ace/assets/js/ace/ace.submenu-hover.js"></script>
+	<script src="../plugins/ace/assets/js/ace/ace.widget-box.js"></script>
+	<script src="../plugins/ace/assets/js/ace/ace.settings.js"></script>
+	<script src="../plugins/ace/assets/js/ace/ace.settings-rtl.js"></script>
+	<script src="../plugins/ace/assets/js/ace/ace.settings-skin.js"></script>
+	<script src="../plugins/ace/assets/js/ace/ace.widget-on-reload.js"></script>
+	<script src="../plugins/ace/assets/js/ace/ace.searchbox-autocomplete.js"></script>
+
+	<script src="../plugins/ace/assets/js/jqGrid/jquery.jqGrid.src.js"></script>
+	<!-- ~~ -->
+	<script src="../plugins/ace/assets/js/jqGrid/i18n/grid.locale-cn.js"></script>
+	<!-- ~~ -->
+
+	<script src="../plugins/ace/assets/js/jquery.autosize.js"></script>
+
+	<!-- the following scripts are used in demo only for onpage help and you don't need them -->
+	<link rel="stylesheet"href="../plugins/ace/assets/css/ace.onpage-help.css" />
+	<script src="../plugins/layer/layer.js"></script>
+	<script src="../plugins/layui/layui.js"></script>
+	<script src="../plugins/layer/extend/layer.ext.js"></script>
+	<!-- <script type="text/javascript" src="plugins/layer/extend/layer.ext.js"></script>   -->
+	<script type="text/javascript"
+		src="../plugins/artDialog/jquery.artDialog.js?skin=twitter"></script>
+	<script type="text/javascript"
+		src="../plugins/artDialog/plugins/iframeTools.js"></script>
+
+	<script type="text/javascript" src="plugins/echart/echarts.js"></script>
+	<script type="text/javascript"
+		src="../plugins/zTree_v3/js/jquery.ztree.core-3.5.js"></script>
+	<script type="text/javascript"
+		src="../plugins/zTree_v3/js/jquery.ztree.excheck-3.5.js"></script>
+	<script type="text/javascript"
+		src="../plugins/zTree_v3/js/jquery.ztree.exedit-3.5.js"></script>
+
+	<script type="text/javascript"
+		src="../plugins/My97DatePicker/WdatePicker.js"></script>
+		<script src="../plugins/ace/assets/js/date-time/bootstrap-datepicker.js"></script>
+		<script src="../plugins/ace/assets/js/date-time/bootstrap-timepicker.js"></script>
+		<script src="../plugins/ace/assets/js/date-time/moment.js"></script>
+		<script src="../plugins/ace/assets/js/date-time/daterangepicker.js"></script>
+		<script src="../plugins/ace/assets/js/date-time/bootstrap-datetimepicker.js"></script>
+	<script src="../js/jquery-form.js" type="text/javascript"></script>
+	<script src="../js/jquery.myLayout.js"></script>
+	<script src="../js/jquery.myTree.js"></script>
+	
+	<!-- 引用js -->
+	
+	<div class="hide" id="update">
+		<form id="pform">
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right"
+					for="form-field-1">请输入原密码</label>
+				<div class="col-sm-9">
+					<input type="text" class="form-control" value="" name="ystr" id="str"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right"
+					for="form-field-1">请输入新密码</label>
+				<div class="col-sm-9">
+					<input type="password" class="form-control" name="str" id="str1"
+						value="" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right"
+					for="form-field-1">请再一次输入新密码</label>
+				<div class="col-sm-9">
+					<input type="password" class="form-control" name="str2" id="str2"
+						value="" />
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<!-- 显示用户信息 -->
+	<div class="hide" id="upcp">
+		<form class="form-horizontal" id="uppform" method="post">
+			<br> <label
+				class="col-sm-12  col-md-12 col-xs-12 col-lg-4  control-label no-padding-right"
+				for="form-field-1">用户名</label>
+			<div class="col-sm-12 col-md-12 col-xs-12 col-lg-6">
+				<input type="text" readonly class="form-control" id="username" />
+			</div>
+			<label
+				class="col-sm-12  col-md-12 col-xs-12 col-lg-4  control-label no-padding-right"
+				for="form-field-1">姓名</label>
+			<div class="col-sm-12 col-md-12 col-xs-12 col-lg-6">
+				<input type="text" readonly class="form-control" id="name" />
+			</div>
+			<label
+				class="col-sm-12  col-md-12 col-xs-12 col-lg-4  control-label no-padding-right"
+				for="form-field-1">角色</label>
+			<div class="col-sm-12 col-md-12 col-xs-12 col-lg-6">
+				<input type="text" readonly class="form-control" id="gender" />
+			</div>
+		</form>
+	</div>
+
+	<script type="text/javascript">
+		function updatePerson() {
+			document.getElementById("pform").reset();
+			$('#update').removeClass("hide");
+			userModel = layer.open({
+				type : 1,
+				shade : [ 0.5 ],
+				title : '修改密码', //不显示标题
+				area : [ '40%', '250px' ],
+				content : $('#update'), //捕获的元素
+				btn : [ '确认', '取消' ],
+				yes : function(index, layero) { //或者使用btn1
+					var str = $("#str").val();
+					var str1 = $("#str1").val();
+					var str2 = $("#str2").val();
+					$.post("mmpd", {"str" : str}, function(data) {
+						if (data == 'true') {
+							if (str1.length < 6) {								//密码长度的检验
+								if(str1 ==""){									//判断是否输入新的密码
+									layer.msg("请输入要更该的新密码!");
+									return;
+								}
+								if(str2 ==""){									//判断是否重复输入新密码
+									layer.msg("请确认更改的新密码!");
+									return;
+								}
+								layer.msg("密码太短，请重新输入!");
+								return;
+							}else{
+								if(str1 != str2){								//输入的密码是否想通
+									layer.msg("请检验两次输入的密码是否相同!");
+									return;
+								}else{
+									$.post("uppass", {"password" : str1}, function(data) {
+										if(data=='true')
+											layer.msg("密码修改成功!");
+										layer.close(index);
+										$('#update').addClass("hide");
+										layer.confirm('密码修改成功!请重新登录!', {
+											btn : [ '确定' ]//按钮
+											}, function() {
+												window.location.href = "/dwms";
+												});
+									});
+								}
+							}
+						} else {
+							layer.msg("原密码错误!请重新输入.");
+							return;
+						}
+					});
+				},
+				btn2 : function(index) {
+					layer.close(index);
+					$('#update').addClass("hide");
+					
+				},
+				cancel : function(index) {
+					layer.close(index);
+					$('#update').addClass("hide");
+					
+				}
+			});
+		};
+		function personInfo() {
+			$.get("getuser", {
+				"num" : 0
+			}, function(data) {
+				$("#username").val(data.username);
+				$("#name").val(data.name);
+				$("#gender").val(data.poisition);
+
+				$('#upcp').removeClass("hide");
+				userModel = layer.open({
+					type : 1,
+					shade : [ 0.5 ],
+					title : '用户个人信息', //不显示标题
+					area : [ '30%', '300px' ], //显示空间
+					content : $('#upcp'), //捕获的元素
+					btn : [ '确定' ],
+					yes : function(index, layero) { //或者使用btn1
+						layer.close(index);
+						$('#upcp').addClass("hide"); //取消继续隐藏
+					},
+					cancel : function(index) {
+						layer.close(index);
+						$('#upcp').addClass("hide");
+						
+					}
+				});
+
+			});
+		};
+		function signout(){
+			//询问框
+			layer.confirm('确定是否退出？', {
+				btn : [ '确定', '取消' ]
+			//按钮
+			}, function() {
+				$.post("logout",function(data){
+					if(data==null){
+						//这里写当session中为空或者是非法登陆时候 退出
+						layer.confirm('您尚未登录！', {
+							btn : [ '确定' ]//按钮
+							}, function() {
+								window.location.href = "/dwms";
+								});
+					}
+					else{
+						window.location.href = "/dwms";
+					}
+				});
+			}, function() {
+				layer.msg("已取消");
+			});
+		};
+	</script>
+</body>
+</html>
+<script type="text/javascript">
+	$("#signout").click(function() {
+		//询问框
+		layer.confirm('确定是否退出？', {
+			btn : [ '确定', '取消' ]
+		//按钮
+		}, function() {
+			$.post("logout",function(data){
+				if(data==null){
+					//这里写当session中为空或者是非法登陆时候 退出
+					layer.confirm('您尚未登录！', {
+						btn : [ '确定' ]//按钮
+						}, function() {
+							window.location.href = "/dwms";
+							});
+				}
+				else{
+					window.location.href = "/dwms";
+				}
+			});
+		}, function() {
+			layer.msg("已取消");
+		});
+	});
+	$("#console").click(function() {
+		window.location.href = "/dwms/warehouseAdmin";
+	});
+	$("#flush").click(function() {
+		window.location.reload(true);
+	});
+</script>
+	<!-- 跳转 -->
+	<script type="text/javascript">
+							$("#warehouseAdmin_main").click(function(){
+								window.location.href="/dwms/warehouseAdmin";
+							});
+						</script>
+	
+	<script type="text/javascript">
+							$("#warehouseAdmin_drug").click(function(){
+								window.location.href="/dwms/warehouseAdmin/drug";
+							});
+		</script>
+	<script type="text/javascript">
+							$("#warehouseAdmin_inventory").click(function(){
+								window.location.href="/dwms/warehouseAdmin/inventory";
+							});
+		</script>
+
+	<script type="text/javascript">
+							$("#warehouseAdmin_inout").click(function(){
+								window.location.href="/dwms/warehouseAdmin/inout";
+							});
+		</script>
+
+	<script type="text/javascript">
+							$("#warehouseAdmin_supplier").click(function(){
+								window.location.href="/dwms/warehouseAdmin/supplier";
+							});
+		</script>
+	<script type="text/javascript">
+		$.post("getname",function(data){
+			if("error"==data){
+				//这里写当session中为空或者是非法登陆时候 退出
+				layer.confirm('您尚未登录！', {
+				btn : [ '确定' ]//按钮
+				}, function() {
+					window.location.href = "/dwms";
+					});
+			}
+			else{
+				if(data.poisition!="仓库管理员"){
+					layer.confirm('您当前为非法登录！请重新登录', {
+						btn : [ '确定' ]//按钮
+						}, function() {
+							window.location.href = "/dwms";
+							});
+				}else{
+					$("#login_user").append(data.name);
+				}
+			}
+		});
+		</script>
+
+<script type="text/javascript">
+
+function importcfdrug(){
+	$("#aaa").click();
+}
+
+layui.use(['upload', 'layer'], function(){
+	var layer = layui.layer;
+	  layui.upload({
+		  url: 'importdrug',
+		  before: function(input){
+		      layer.msg('文件上传中');
+		    }
+	 		 ,success: function(data){
+	 			if(data.errors!="0"){
+	 				 errorMsg("上传完成，共有"+data.error+"条失效数据！");
+	 			 }
+	    }
+		  });
+});
+</script>
+
+
+
+<script type="text/javascript">
+
+$("table").delegate("tr","mouseover",function(){  
+    $(this).addClass("tr-mouseover");  
+    $(this).css("background-color","#307ecc");   
+});   
+$("table").delegate("tr","mouseout",function(){  
+	$(this).removeClass("tr-mouseover");  
+	$(this).css("background-color","#eee");  
+});  
+
+function show2(){
+	showPage2(1);
+}
+function show3(){
+	showPage3(1);
+}
+
+
+/* -------------------------------处方药------------------------------- */
+//药品查询函数
+function selectDrugs1(){
+	cfArray[0]=document.getElementById("dname1").value;
+	cfArray[1]=document.getElementById("dbatch1").value;
+	cfArray[2]=document.getElementById("dlocation1").value;
+	cfArray[3]=document.getElementById("dclass1").value;
+	showPage1(1);
+}
+//查询框重置函数
+function reset1(){
+	cfArray[0]="";
+	cfArray[1]="";
+	cfArray[2]="";
+	cfArray[3]="";
+	showPage1(1);
+}
+//改变每页数据数量的函数
+function chInfNumber1(){
+	var sel=document.getElementById("sel1").childNodes;
+	//sel[1].value是10  3  是  20   5是50   7是100
+	for(var i=1;i<8;i+=2){
+		if(sel[i].selected==true){
+			cfArray[5]=sel[i].value;
+		}
+	}
+	showPage1(1);
+}
+//填充表格的函数
+function cf_trList(data){
+	var dataStr="";
+	$.each(data, function(i, v) {
+		v=data[i];
+		dataStr += cf_stringBuilder(v,i);
+	});
+	// 把拼接好的表格内容填充到指定位置
+	$("#Table_1").html(dataStr);
+}
+
+function cf_stringBuilder(v,i){
+	var dataStr="";
+	i=i+1;
+	dataStr += '<tr>';
+	dataStr += '<td>'+ i+'</td>';
+	dataStr += '<td>'+ v.name  +'</td>';
+	dataStr += '<td>'+ v.size +'</td>';
+	dataStr += '<td>'+ v.smallclass  +'</td>';
+	dataStr += '<td>'+ v.price  +'</td>';
+	dataStr += '<td>'+ v.supplier  +'</td>';
+	dataStr += '<td>'+ v.batch +'</td>';
+	dataStr += '<td>'+ v.location  +'</td>';
+	dataStr += '<td><div class="hidden-sm hidden-xs action-buttons"><a class="blue" title="查看药品信息" href="javascript:Moremes1('+v.id+',\''+v.name+'\',\''+
+	v.functions +'\',\''+v.taboo+'\',\''+v.reaction+'\',\''+v.note+'\')"><i class="ace-icon fa fa-search-plus bigger-130"></i></a><a title="修改药品信息" class="green" href="javascript:updateForm1('+
+	v.id+',\''+v.name+'\',\''+v.size+'\',\''+v.price+'\',\''+v.batch+'\',\''+v.supplier+'\',\''+v.location+'\')"> <i class="ace-icon fa fa-pencil bigger-130"></i> </a> <a href="javascript:Delete1('+
+	v.id+')" class="red"> <i class="ace-icon fa fa-trash-o bigger-130"></i> </a></div></td>';
+	dataStr += '</tr>';
+	return dataStr;
+}
+
+
+function addcfDrug(){
+	document.getElementById("addForm").reset();
+	$('#addDrug').removeClass("hide");
+	
+	userModel = layer.open({
+		type : 1,
+		shade : [ 0.5 ],
+		title : '添加药品', //不显示标题
+		area : [ '50%', '70%' ], //显示空间
+		content : $('#addDrug'), //捕获的元素
+		btn : [ '确认', '取消' ],
+		btn1 : function(index, layero) { //或者使用btn1
+			var name=document.getElementById("a.name").value;
+			var size=document.getElementById("a.size").value;
+			var smallclass=document.getElementById("a.smallclass").value;
+			var price=document.getElementById("a.price").value;
+			var batch=document.getElementById("a.batch").value;
+			var location=document.getElementById("a.location").value;
+			var supplier=document.getElementById("a.supplier").value;
+			var functions=document.getElementById("a.functions").value;
+			var taboo=document.getElementById("a.taboo").value;
+			var reaction=document.getElementById("a.reaction").value;
+			var note=document.getElementById("a.note").value;
+			var cfdArray=new Array(name,size,"处方药",smallclass,price,supplier,batch,functions,taboo,location,reaction,note);
+			if(name==""){
+				errorMsg("药品名不能为空");
+				return false;
+			}else if(name.indexOf(" ")>=0){
+				errorMsg("药品名不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+
+			if(size==""){
+				errorMsg("药品的规格不能为空");
+				return false;
+			}else if(size.indexOf(' ')>=0){
+				errorMsg("药品的规格不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+
+			if(smallclass==""){
+					errorMsg("药品的分类不能为空");
+					return false;
+				}else if(smallclass.indexOf(' ')>=0){
+					errorMsg("药品的分类不能含有空格(每条信息都不可以有)");
+					return false;
+				}
+			
+			if(price==""){
+				errorMsg("药品的价格不能为空");
+				return false;
+			}else if(price.indexOf(' ')>=0){
+				errorMsg("药品的价格不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+			
+			if(batch==""){
+				errorMsg("药品的批次不能为空");
+				return false;
+			}else if(batch.indexOf(' ')>=0){
+				errorMsg("药品的批次不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+			
+			if(location==""){
+				errorMsg("药品的存放位置不能为空");
+				return false;
+			}else if(location.indexOf(' ')>=0){
+				errorMsg("药品的存放位置不能含有空格(每条信息都不可以有)");
+				return false;
+			}else if(location.substring(0,1)!='A' && location.substring(0,1)!='B' && location.substring(0,1)!='C' && location.substring(0,1)!='D'){
+				errorMsg("处方药的存放位置只能在A、B、C、D区");
+				return false;
+			}else if(location.substring(1,2)!='区' || location.substring(3,4)!='架'){
+				errorMsg("处方药的存放位置格式只能为X区X架");
+				return false;
+			}
+			
+			if(supplier==""){
+				errorMsg("药品的供应商不能为空");
+				return false;
+			}else if(price.indexOf(' ')>=0){
+				errorMsg("药品的供应商不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+			
+			if(functions==""){
+				errorMsg("药品的功能主治不能为空");
+				return false;
+			}else if(functions.indexOf(' ')>=0){
+				errorMsg("药品的功能主治不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+			
+			if(taboo==""){
+				errorMsg("药品的禁忌不能为空");
+				return false;
+			}else if(taboo.indexOf(' ')>=0){
+				errorMsg("药品的禁忌不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+			
+			if(reaction==""){
+				errorMsg("药品的不良反应不能为空");
+				return false;
+			}else if(reaction.indexOf(' ')>=0){
+				errorMsg("药品的不良反应不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+
+			$.post("addDrug",{"darray[]":cfdArray}, function(data) {
+				 if(data=="failed"){
+					errorMsg("该药品已存在，请重新输入");
+				}else{
+					layer.close(index);
+					$('#addDrug').addClass("hide");
+					showPage1(cfArray[4]);
+					layer.msg("添加成功");
+				}
+			});
+		
+		},
+		btn2   : function(index) {
+					layer.close(index);
+					$('#addDrug').addClass("hide"); //取消继续隐藏
+					layer.msg("已取消");
+		},
+		cancel : function(index) {
+					layer.close(index);
+					$('#addDrug').addClass("hide"); //取消继续隐藏
+					layer.msg("已取消");
+				}
+		});
+
+}
+
+function Moremes1(id,name,functions,taboo,reaction,note){
+	document.getElementById("DrugmesForm").reset();
+	document.getElementById("m.ID").value=id;
+	document.getElementById("m.name").value=name;
+	document.getElementById("m.functions").value=functions;
+	document.getElementById("m.taboo").value =taboo;
+	document.getElementById("m.reaction").value=reaction;
+	document.getElementById("m.note").value=note;
+	$('#lookDrug').removeClass("hide");
+
+	userModel = layer.open({
+					type : 1,
+					shade : [ 0.5 ],
+					title : '查看药品信息', //不显示标题
+					area : [ '40%', '50%' ], //显示空间
+					content : $('#lookDrug'), //捕获的元素
+					btn : [ '确认' ],
+					yes : function(index, layero) { //或者使用btn1
+								layer.close(index);
+								$('#lookDrug').addClass("hide"); //取消继续隐藏
+								layer.msg("已关闭");
+								showPage1(cfArray[4]);
+					},
+					cancel : function(index) {
+								layer.close(index);
+								$('#lookDrug').addClass("hide"); //取消继续隐藏
+								layer.msg("已关闭");
+								showPage1(cfArray[4]);
+							}
+					});
+}
+function updateForm1(id,name,size,price,batch,supplier,location){
+	document.getElementById("updateForm").reset();
+	//$("#id").val(id);//字段一一对应，必须填写id
+	document.getElementById("u.ID").value=id;
+	document.getElementById("u.name").value=name;
+	document.getElementById("u.size").value=size;
+	document.getElementById("u.price").value = price;
+	document.getElementById("u.batch").value = batch;
+	document.getElementById("u.location").value=location;
+	document.getElementById("u.supplier").value=supplier;
+	$('#updateDrug').removeClass("hide");
+	
+	userModel = layer.open({
+					type : 1,
+					shade : [ 0.5 ],
+					title : '修改药品信息', //不显示标题
+					area : [ '40%', '40%' ], //显示空间
+					content : $('#updateDrug'), //捕获的元素
+					btn : [ '修改', '取消' ],
+					yes : function(index, layero) { //或者使用btn1
+						var name = document.getElementById("u.name").value;
+						var size = document.getElementById("u.size").value;
+						var price = document.getElementById("u.price").value;
+						var batch = document.getElementById("u.batch").value;
+						var supplier = document.getElementById("u.supplier").value;
+						var id   = document.getElementById("u.ID").value;
+						var location    = document.getElementById("u.location").value;
+						var upArray = new Array(id,name,size,price,batch,supplier,location);
+						if(name==""){
+							errorMsg("药品名不能为空");
+							return false;
+						}else if(name.indexOf(" ")>=0){
+							errorMsg("药品名不能含有空格(每条信息都不可以有)");
+							return false;
+						}
+
+						if(size==""){
+							errorMsg("药品的规格不能为空");
+							return false;
+						}else if(size.indexOf(' ')>=0){
+							errorMsg("药品的规格不能含有空格(每条信息都不可以有)");
+							return false;
+						}
+
+						
+						if(price==""){
+							errorMsg("药品的价格不能为空");
+							return false;
+						}else if(price.indexOf(' ')>=0){
+							errorMsg("药品的价格不能含有空格(每条信息都不可以有)");
+							return false;
+						}
+						
+						if(batch==""){
+							errorMsg("药品的批次不能为空");
+							return false;
+						}else if(batch.indexOf(' ')>=0){
+							errorMsg("药品的批次不能含有空格(每条信息都不可以有)");
+							return false;
+						}
+						
+						if(location==""){
+							errorMsg("药品的存放位置不能为空");
+							return false;
+						}else if(location.indexOf(' ')>=0){
+							errorMsg("药品的存放位置不能含有空格(每条信息都不可以有)");
+							return false;
+						}else if(location.substring(0,1)!='A' && location.substring(0,1)!='B' && location.substring(0,1)!='C' && location.substring(0,1)!='D'){
+							errorMsg("处方药的存放位置只能在A、B、C、D区");
+							return false;
+						}else if(location.substring(1,2)!='区' || location.substring(3,4)!='架'){
+							errorMsg("处方药的存放位置格式只能为X区X架");
+							return false;
+						}
+						
+						if(supplier==""){
+							errorMsg("药品的供应商不能为空");
+							return false;
+						}else if(price.indexOf(' ')>=0){
+							errorMsg("药品的供应商不能含有空格(每条信息都不可以有)");
+							return false;
+						}
+						$.post("updateDrug", {"upArray[]":upArray}, function() {
+								layer.close(index);
+								$('#updateDrug').addClass("hide");
+								showPage1(cfArray[4]);
+								layer.msg("修改成功");
+						});
+					
+					},
+					btn2   : function(index) {
+								layer.close(index);
+								$('#updateDrug').addClass("hide"); //取消继续隐藏
+								layer.msg("已取消");
+					},
+					cancel : function(index) {
+								layer.close(index);
+								$('#updateDrug').addClass("hide"); //取消继续隐藏
+								layer.msg("已取消");
+							}
+					});
+}
+
+function Delete1(id) {
+	if(id!=null){
+		layer.confirm('是否确定删除此药品？', {btn : [ '确定', '取消' ]}, function() {
+		$.post("deleteDrug",{"id":id}, function(data) {
+			if(data=="success"){
+				layer.msg("已删除");
+				showPage1(cfArray[4]);
+			}else{
+				errorMsg("该药品尚有库存无法删除，请在库存清空后删除库存再删除该药品！");
+				showPage1(cfArray[4]);
+			}
+		});
+		
+	}, function() {
+		layer.msg("已取消");
+	});
+		}else{
+			layer.alert("请选择要删除的数据！");
+		}
+}
+//页脚填充函数
+function PageFoot1(data){
+	var dataStr = "";
+	if(data.pageNumber==1)
+	{
+		dataStr +='<li class="paginate_button previous disabled" ';
+		dataStr +='aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a>首页</a></li>';
+		dataStr +='<li class="paginate_button previous disabled" ';
+		dataStr +='aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a>上一页</a></li>';
+	}else
+	{
+		dataStr +='<li class="paginate_button previous" aria-controls="dynamic-table" tabindex="0"';
+		dataStr +='id="dynamic-table_previous"><a href="javascript:showPage1(1)">首页</a></li>';
+		dataStr +='<li class="paginate_button previous" aria-controls="dynamic-table" tabindex="0"';
+		dataStr +='id="dynamic-table_previous"><a href="javascript:showPage1('+data.pageNumber+'-1)">上一页</a></li>';
+	}
+	
+	if(data.pageNumber<4){
+		for(var i = 1;i<=data.totalPage;i++){
+			if(data.pageNumber==i){
+				dataStr += "<li class=\"paginate_button active\"tabindex=\"0\">";
+				dataStr += "<a>"+i+"</a></li>";
+			}else{
+				dataStr += "<li class=\"paginate_button\"tabindex=\"0\">";
+				dataStr += "<a href=\"javascript:showPage1("+i+")\">"+i+"</a></li>";
+			}
+			if(i==5){
+				break;
+			}
+		}
+		if(data.totalPage>5){
+			dataStr +="<li class=\"paginate_button previous disabled\" tabindex=\"0\"><a>...</a></li>";
+		}
+	}else if(data.pageNumber>(data.totalPage-3)){
+		if(data.totalPage<6){
+			for(var i = 1;i<=data.totalPage;i++){
+				if(data.pageNumber==i){
+					dataStr += "<li class=\"paginate_button active\"tabindex=\"0\">";
+					dataStr += "<a>"+i+"</a></li>";
+				}else{
+					dataStr += "<li class=\"paginate_button\"tabindex=\"0\">";
+					dataStr += "<a href=\"javascript:showPage1("+i+")\">"+i+"</a></li>";
+				}
+			}
+		}else{
+			dataStr +="<li class=\"paginate_button previous disabled\" tabindex=\"0\"><a>...</a></li>";			
+			for(var i = data.totalPage-4;i<=data.totalPage;i++){
+				if(data.pageNumber==i){
+					dataStr += "<li class=\"paginate_button active\"tabindex=\"0\">";
+					dataStr += "<a>"+i+"</a></li>";
+				}else{
+					dataStr += "<li class=\"paginate_button\"tabindex=\"0\">";
+					dataStr += "<a href=\"javascript:showPage1("+i+")\">"+i+"</a></li>";
+				}
+			}
+		}
+	}else{
+		dataStr +="<li class=\"paginate_button previous disabled\" tabindex=\"0\"><a>...</a></li>";
+		for(var i = data.pageNumber-2;i<data.pageNumber+3;i++){
+			if(data.pageNumber==i){
+				dataStr += "<li class=\"paginate_button active\"tabindex=\"0\">";
+				dataStr += "<a>"+i+"</a></li>";
+			}else{
+				dataStr += "<li class=\"paginate_button\"tabindex=\"0\">";
+				dataStr += "<a href=\"javascript:showPage1("+i+")\">"+i+"</a></li>";
+			}
+		}
+		dataStr +="<li class=\"paginate_button previous disabled\" tabindex=\"0\"><a>...</a></li>";
+	}
+	if(data.totalPage==data.pageNumber){
+		dataStr +='<li class="paginate_button next disabled" aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a>下一页</a></li>';
+		dataStr +='<li class="paginate_button next disabled" aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a>尾页</a></li>';
+	}else{
+		dataStr +='<li class="paginate_button next" aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a href="javascript:showPage1('+data.pageNumber+'+1)">下一页</a></li>';
+		dataStr +='<li class="paginate_button next" aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a href="javascript:showPage1('+data.totalPage+')">尾页</a></li>';
+	}
+	
+	$("#pagefoot1").html(dataStr);		 //把循环好的页码给替换掉
+};
+
+var cfArray = new Array();
+cfArray[5]=10;
+function showPage1(curr) {
+	cfArray[4] = curr;
+	$.post("cflist", {"cfArray[]": cfArray}, function(data) {
+		if(data.totalPage==0){
+			$('#no1').removeClass("hide");
+			$('#table1').addClass("hide");
+		}else{
+			$('#no1').addClass("hide");
+			$('#table1').removeClass("hide");
+			cf_trList(data.list);
+			PageFoot1(data); 		   //调用的PageFoot方法，循环输出页码连接  
+		}
+	});
+}
+showPage1(1);   		//刚进入页面为第一页，列出第一页数据和页脚
+
+/* -------------------------------非处方药------------------------------- */
+//药品查询函数
+function selectDrugs2(){
+	fcfArray[0]=document.getElementById("dname2").value;
+	fcfArray[1]=document.getElementById("dbatch2").value;
+	fcfArray[2]=document.getElementById("dlocation2").value;
+	fcfArray[3]=document.getElementById("dclass2").value;
+	showPage2(1);
+}
+//查询框重置函数
+function reset2(){
+	fcfArray[0]="";
+	fcfArray[1]="";
+	fcfArray[2]="";
+	fcfArray[3]="";
+	showPage2(1);
+}
+//改变每页数据数量的函数
+function chInfNumber2(){
+	var sel=document.getElementById("sel2").childNodes;
+	//sel[1].value是10  3  是  20   5是50   7是100
+	for(var i=1;i<8;i+=2){
+		if(sel[i].selected==true){
+			fcfArray[5]=sel[i].value;
+		}
+	}
+	showPage2(1);
+}
+//填充表格的函数
+function fcf_trList(data){
+	var dataStr="";
+	$.each(data, function(i, v) {
+		v=data[i];
+		dataStr += fcf_stringBuilder(v,i);
+	});
+	// 把拼接好的表格内容填充到指定位置
+	$("#Table_2").html(dataStr);
+}
+
+function fcf_stringBuilder(v,i){
+	var dataStr="";
+	i=i+1;
+	dataStr += '<tr>';
+	dataStr += '<td>'+ i+'</td>';
+	dataStr += '<td>'+ v.name  +'</td>';
+	dataStr += '<td>'+ v.size +'</td>';
+	dataStr += '<td>'+ v.smallclass  +'</td>';
+	dataStr += '<td>'+ v.price  +'</td>';
+	dataStr += '<td>'+ v.supplier  +'</td>';
+	dataStr += '<td>'+ v.batch +'</td>';
+	dataStr += '<td>'+ v.location  +'</td>';
+	dataStr += '<td><div class="hidden-sm hidden-xs action-buttons"><a class="blue" title="查看药品信息" href="javascript:Moremes2('+v.id+',\''+v.name+'\',\''+
+	v.functions +'\',\''+v.taboo+'\',\''+v.reaction+'\',\''+v.note+'\')"><i class="ace-icon fa fa-search-plus bigger-130"></i></a><a title="修改药品信息" class="green" href="javascript:updateForm2('+
+	v.id+',\''+v.name+'\',\''+v.size+'\',\''+v.price+'\',\''+v.batch+'\',\''+v.supplier+'\',\''+v.location+'\')"> <i class="ace-icon fa fa-pencil bigger-130"></i> </a> <a href="javascript:Delete2('+
+	v.id+')" class="red"> <i class="ace-icon fa fa-trash-o bigger-130"></i> </a></div></td>';
+	dataStr += '</tr>';
+	return dataStr;
+}
+
+function addfcfDrug(){
+	document.getElementById("addForm").reset();
+	$('#addDrug').removeClass("hide");
+	
+	userModel = layer.open({
+		type : 1,
+		shade : [ 0.5 ],
+		title : '添加药品', //不显示标题
+		area : [ '50%', '70%' ], //显示空间
+		content : $('#addDrug'), //捕获的元素
+		btn : [ '确认', '取消' ],
+		btn1 : function(index, layero) { //或者使用btn1
+			var name=document.getElementById("a.name").value;
+			var size=document.getElementById("a.size").value;
+			var smallclass=document.getElementById("a.smallclass").value;
+			var price=document.getElementById("a.price").value;
+			var batch=document.getElementById("a.batch").value;
+			var location=document.getElementById("a.location").value;
+			var supplier=document.getElementById("a.supplier").value;
+			var functions=document.getElementById("a.functions").value;
+			var taboo=document.getElementById("a.taboo").value;
+			var reaction=document.getElementById("a.reaction").value;
+			var note=document.getElementById("a.note").value;
+			var cfdArray=new Array(name,size,"非处方药",smallclass,price,supplier,batch,functions,taboo,location,reaction,note);
+			if(name==""){
+				errorMsg("药品名不能为空");
+				return false;
+			}else if(name.indexOf(" ")>=0){
+				errorMsg("药品名不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+
+			if(size==""){
+				errorMsg("药品的规格不能为空");
+				return false;
+			}else if(size.indexOf(' ')>=0){
+				errorMsg("药品的规格不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+
+			if(smallclass==""){
+					errorMsg("药品的分类不能为空");
+					return false;
+				}else if(smallclass.indexOf(' ')>=0){
+					errorMsg("药品的分类不能含有空格(每条信息都不可以有)");
+					return false;
+				}
+			
+			if(price==""){
+				errorMsg("药品的价格不能为空");
+				return false;
+			}else if(price.indexOf(' ')>=0){
+				errorMsg("药品的价格不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+			
+			if(batch==""){
+				errorMsg("药品的批次不能为空");
+				return false;
+			}else if(batch.indexOf(' ')>=0){
+				errorMsg("药品的批次不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+			
+			if(location==""){
+				errorMsg("药品的存放位置不能为空");
+				return false;
+			}else if(location.indexOf(' ')>=0){
+				errorMsg("药品的存放位置不能含有空格(每条信息都不可以有)");
+				return false;
+			}else if(location.substring(0,1)!='E' && location.substring(0,1)!='F' && location.substring(0,1)!='G' && location.substring(0,1)!='H'){
+				errorMsg("非处方药的存放位置只能在E、F、G、H区");
+				return false;
+			}else if(location.substring(1,2)!='区' || location.substring(3,4)!='架'){
+				errorMsg("非处方药的存放位置格式只能为X区X架");
+				return false;
+			}
+			
+			if(supplier==""){
+				errorMsg("药品的供应商不能为空");
+				return false;
+			}else if(price.indexOf(' ')>=0){
+				errorMsg("药品的供应商不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+			
+			if(functions==""){
+				errorMsg("药品的功能主治不能为空");
+				return false;
+			}else if(functions.indexOf(' ')>=0){
+				errorMsg("药品的功能主治不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+			
+			if(taboo==""){
+				errorMsg("药品的禁忌不能为空");
+				return false;
+			}else if(taboo.indexOf(' ')>=0){
+				errorMsg("药品的禁忌不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+			
+			if(reaction==""){
+				errorMsg("药品的不良反应不能为空");
+				return false;
+			}else if(reaction.indexOf(' ')>=0){
+				errorMsg("药品的不良反应不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+
+			$.post("addDrug",{"darray[]":cfdArray}, function(data) {
+				 if(data=="failed"){
+					errorMsg("该药品已存在，请重新输入");
+				}else{
+					layer.close(index);
+					$('#addDrug').addClass("hide");
+					showPage1(cfArray[4]);
+					layer.msg("添加成功");
+				}
+			});
+		
+		},
+		btn2   : function(index) {
+					layer.close(index);
+					$('#addDrug').addClass("hide"); //取消继续隐藏
+					layer.msg("已取消");
+		},
+		cancel : function(index) {
+					layer.close(index);
+					$('#addDrug').addClass("hide"); //取消继续隐藏
+					layer.msg("已取消");
+				}
+		});
+
+}
+
+function Moremes2(id,name,functions,taboo,reaction,note){
+	document.getElementById("DrugmesForm").reset();
+	document.getElementById("m.ID").value=id;
+	document.getElementById("m.name").value=name;
+	document.getElementById("m.functions").value=functions;
+	document.getElementById("m.taboo").value =taboo;
+	document.getElementById("m.reaction").value=reaction;
+	document.getElementById("m.note").value=note;
+	$('#lookDrug').removeClass("hide");
+
+	userModel = layer.open({
+					type : 1,
+					shade : [ 0.5 ],
+					title : '查看药品信息', //不显示标题
+					area : [ '40%', '50%' ], //显示空间
+					content : $('#lookDrug'), //捕获的元素
+					btn : [ '确认' ],
+					yes : function(index, layero) { //或者使用btn1
+								layer.close(index);
+								$('#lookDrug').addClass("hide"); //取消继续隐藏
+								layer.msg("已关闭");
+								showPage2(fcfArray[4]);
+					},
+					cancel : function(index) {
+								layer.close(index);
+								$('#lookDrug').addClass("hide"); //取消继续隐藏
+								layer.msg("已关闭");
+								showPage2(fcfArray[4]);
+							}
+					});
+}
+function updateForm2(id,name,size,price,batch,supplier,location){
+	document.getElementById("updateForm").reset();
+	//$("#id").val(id);//字段一一对应，必须填写id
+	document.getElementById("u.ID").value=id;
+	document.getElementById("u.name").value=name;
+	document.getElementById("u.size").value=size;
+	document.getElementById("u.price").value = price;
+	document.getElementById("u.batch").value = batch;
+	document.getElementById("u.location").value=location;
+	document.getElementById("u.supplier").value=supplier;
+	$('#updateDrug').removeClass("hide");
+	
+	userModel = layer.open({
+					type : 1,
+					shade : [ 0.5 ],
+					title : '修改药品信息', //不显示标题
+					area : [ '40%', '40%' ], //显示空间
+					content : $('#updateDrug'), //捕获的元素
+					btn : [ '修改', '取消' ],
+					yes : function(index, layero) { //或者使用btn1
+						var name = document.getElementById("u.name").value;
+						var size = document.getElementById("u.size").value;
+						var price = document.getElementById("u.price").value;
+						var batch = document.getElementById("u.batch").value;
+						var supplier = document.getElementById("u.supplier").value;
+						var id   = document.getElementById("u.ID").value;
+						var location    = document.getElementById("u.location").value;
+						var upArray = new Array(id,name,size,price,batch,supplier,location);
+						if(name==""){
+							errorMsg("药品名不能为空");
+							return false;
+						}else if(name.indexOf(" ")>=0){
+							errorMsg("药品名不能含有空格(每条信息都不可以有)");
+							return false;
+						}
+
+						if(size==""){
+							errorMsg("药品的规格不能为空");
+							return false;
+						}else if(size.indexOf(' ')>=0){
+							errorMsg("药品的规格不能含有空格(每条信息都不可以有)");
+							return false;
+						}
+
+						
+						if(price==""){
+							errorMsg("药品的价格不能为空");
+							return false;
+						}else if(price.indexOf(' ')>=0){
+							errorMsg("药品的价格不能含有空格(每条信息都不可以有)");
+							return false;
+						}
+						
+						if(batch==""){
+							errorMsg("药品的批次不能为空");
+							return false;
+						}else if(batch.indexOf(' ')>=0){
+							errorMsg("药品的批次不能含有空格(每条信息都不可以有)");
+							return false;
+						}
+						
+						if(location==""){
+							errorMsg("药品的存放位置不能为空");
+							return false;
+						}else if(location.indexOf(' ')>=0){
+							errorMsg("药品的存放位置不能含有空格(每条信息都不可以有)");
+							return false;
+						}else if(location.substring(0,1)!='E' && location.substring(0,1)!='F' && location.substring(0,1)!='G' && location.substring(0,1)!='H'){
+							errorMsg("非处方药的存放位置只能在E、F、G、H区");
+							return false;
+						}else if(location.substring(1,2)!='区' || location.substring(3,4)!='架'){
+							errorMsg("非处方药的存放位置格式只能为X区X架");
+							return false;
+						}
+						
+						if(supplier==""){
+							errorMsg("药品的供应商不能为空");
+							return false;
+						}else if(price.indexOf(' ')>=0){
+							errorMsg("药品的供应商不能含有空格(每条信息都不可以有)");
+							return false;
+						}
+						$.post("updateDrug", {"upArray[]":upArray}, function() {
+								layer.close(index);
+								$('#updateDrug').addClass("hide");
+								showPage2(fcfArray[4]);
+								layer.msg("修改成功");
+						});
+					
+					},
+					btn2   : function(index) {
+								layer.close(index);
+								$('#updateDrug').addClass("hide"); //取消继续隐藏
+								layer.msg("已取消");
+					},
+					cancel : function(index) {
+								layer.close(index);
+								$('#updateDrug').addClass("hide"); //取消继续隐藏
+								layer.msg("已取消");
+							}
+					});
+}
+
+function Delete2(id) {
+	if(id!=null){
+		layer.confirm('是否确定删除此药品？', {btn : [ '确定', '取消' ]}, function() {
+		$.post("deleteDrug",{"id":id}, function(data) {
+			if(data=="success"){
+				layer.msg("已删除");
+				showPage2(fcfArray[4]);
+			}else{
+				errorMsg("该药品尚有库存无法删除，请在库存清空后删除库存再删除该药品！");
+				showPage2(fcfArray[4]);
+			}
+		});
+	}, function() {
+		layer.msg("已取消");
+	});
+		}else{
+			layer.alert("请选择要删除的数据！");
+		}
+}
+
+//页脚填充函数
+function PageFoot2(data){
+	var dataStr = "";
+	if(data.pageNumber==1)
+	{
+		dataStr +='<li class="paginate_button previous disabled" ';
+		dataStr +='aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a>首页</a></li>';
+		dataStr +='<li class="paginate_button previous disabled" ';
+		dataStr +='aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a>上一页</a></li>';
+	}else
+	{
+		dataStr +='<li class="paginate_button previous" aria-controls="dynamic-table" tabindex="0"';
+		dataStr +='id="dynamic-table_previous"><a href="javascript:showPage2(1)">首页</a></li>';
+		dataStr +='<li class="paginate_button previous" aria-controls="dynamic-table" tabindex="0"';
+		dataStr +='id="dynamic-table_previous"><a href="javascript:showPage2('+data.pageNumber+'-1)">上一页</a></li>';
+	}
+	
+	if(data.pageNumber<4){
+		for(var i = 1;i<=data.totalPage;i++){
+			if(data.pageNumber==i){
+				dataStr += "<li class=\"paginate_button active\"tabindex=\"0\">";
+				dataStr += "<a>"+i+"</a></li>";
+			}else{
+				dataStr += "<li class=\"paginate_button\"tabindex=\"0\">";
+				dataStr += "<a href=\"javascript:showPage2("+i+")\">"+i+"</a></li>";
+			}
+			if(i==5){
+				break;
+			}
+		}
+		if(data.totalPage>5){
+			dataStr +="<li class=\"paginate_button previous disabled\" tabindex=\"0\"><a>...</a></li>";
+		}
+	}else if(data.pageNumber>(data.totalPage-3)){
+		if(data.totalPage<6){
+			for(var i = 1;i<=data.totalPage;i++){
+				if(data.pageNumber==i){
+					dataStr += "<li class=\"paginate_button active\"tabindex=\"0\">";
+					dataStr += "<a>"+i+"</a></li>";
+				}else{
+					dataStr += "<li class=\"paginate_button\"tabindex=\"0\">";
+					dataStr += "<a href=\"javascript:showPage2("+i+")\">"+i+"</a></li>";
+				}
+			}
+		}else{
+			dataStr +="<li class=\"paginate_button previous disabled\" tabindex=\"0\"><a>...</a></li>";			
+			for(var i = data.totalPage-4;i<=data.totalPage;i++){
+				if(data.pageNumber==i){
+					dataStr += "<li class=\"paginate_button active\"tabindex=\"0\">";
+					dataStr += "<a>"+i+"</a></li>";
+				}else{
+					dataStr += "<li class=\"paginate_button\"tabindex=\"0\">";
+					dataStr += "<a href=\"javascript:showPage2("+i+")\">"+i+"</a></li>";
+				}
+			}
+		}
+	}else{
+		dataStr +="<li class=\"paginate_button previous disabled\" tabindex=\"0\"><a>...</a></li>";
+		for(var i = data.pageNumber-2;i<data.pageNumber+3;i++){
+			if(data.pageNumber==i){
+				dataStr += "<li class=\"paginate_button active\"tabindex=\"0\">";
+				dataStr += "<a>"+i+"</a></li>";
+			}else{
+				dataStr += "<li class=\"paginate_button\"tabindex=\"0\">";
+				dataStr += "<a href=\"javascript:showPage2("+i+")\">"+i+"</a></li>";
+			}
+		}
+		dataStr +="<li class=\"paginate_button previous disabled\" tabindex=\"0\"><a>...</a></li>";
+	}
+	if(data.totalPage==data.pageNumber){
+		dataStr +='<li class="paginate_button next disabled" aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a>下一页</a></li>';
+		dataStr +='<li class="paginate_button next disabled" aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a>尾页</a></li>';
+	}else{
+		dataStr +='<li class="paginate_button next" aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a href="javascript:showPage2('+data.pageNumber+'+1)">下一页</a></li>';
+		dataStr +='<li class="paginate_button next" aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a href="javascript:showPage2('+data.totalPage+')">尾页</a></li>';
+	}
+	
+	$("#pagefoot2").html(dataStr);		 //把循环好的页码给替换掉
+};
+
+var fcfArray = new Array();
+fcfArray[5]=10;
+function showPage2(curr) { 
+	fcfArray[4] = curr;
+	$.post("fcflist", {"fcfArray[]": fcfArray}, function(data) {
+		if(data.totalPage==0){
+			$('#no2').removeClass("hide");
+			$('#table2').addClass("hide");
+		}else{
+			$('#no2').addClass("hide");
+			$('#table2').removeClass("hide");
+			fcf_trList(data.list);
+			PageFoot2(data); 		   //调用的PageFoot方法，循环输出页码连接  
+		}
+	});
+}
+
+
+/* -------------------------------其他药------------------------------- */
+
+//药品查询函数
+function selectDrugs3(){
+	oArray[0]=document.getElementById("dname3").value;
+	oArray[1]=document.getElementById("dbatch3").value;
+	oArray[2]=document.getElementById("dlocation3").value;
+	oArray[3]=document.getElementById("dclass3").value;
+	showPage3(1);
+}
+//查询框重置函数
+function reset3(){
+	oArray[0]="";
+	oArray[1]="";
+	oArray[2]="";
+	oArray[3]="";
+	showPage3(1);
+}
+//改变每页数据数量的函数
+function chInfNumber3(){
+	var sel=document.getElementById("sel3").childNodes;
+	//sel[1].value是10  3  是  20   5是50   7是100
+	for(var i=1;i<8;i+=2){
+		if(sel[i].selected==true){
+			oArray[5]=sel[i].value;
+		}
+	}
+	showPage3(1);
+}
+//填充表格的函数
+function o_trList(data){
+	var dataStr="";
+	$.each(data, function(i, v) {
+		v=data[i];
+		dataStr += o_stringBuilder(v,i);
+	});
+	// 把拼接好的表格内容填充到指定位置
+	$("#Table_3").html(dataStr);
+}
+
+function o_stringBuilder(v,i){
+	var dataStr="";
+	i=i+1;
+	dataStr += '<tr>';
+	dataStr += '<td>'+ i+'</td>';
+	dataStr += '<td>'+ v.name  +'</td>';
+	dataStr += '<td>'+ v.size +'</td>';
+	dataStr += '<td>'+ v.smallclass  +'</td>';
+	dataStr += '<td>'+ v.price  +'</td>';
+	dataStr += '<td>'+ v.supplier  +'</td>';
+	dataStr += '<td>'+ v.batch +'</td>';
+	dataStr += '<td>'+ v.location  +'</td>';
+	dataStr += '<td><div class="hidden-sm hidden-xs action-buttons"><a title="查看药品信息" class="blue" href="javascript:Moremes3('+v.id+',\''+v.name+'\',\''+
+	v.functions +'\',\''+v.taboo+'\',\''+v.reaction+'\',\''+v.note+'\')"><i class="ace-icon fa fa-search-plus bigger-130"></i></a><a class="green"title="修改药品信息" href="javascript:updateForm3('+
+	v.id+',\''+v.name+'\',\''+v.size+'\',\''+v.price+'\',\''+v.batch+'\',\''+v.supplier+'\',\''+v.location+'\')"> <i class="ace-icon fa fa-pencil bigger-130"></i> </a> <a href="javascript:Delete3('+
+	v.id+')" class="red"> <i class="ace-icon fa fa-trash-o bigger-130"></i> </a></div></td>';
+	dataStr += '</tr>';
+	return dataStr;
+}
+
+function addoDrug(){
+	document.getElementById("addForm").reset();
+	$('#addDrug').removeClass("hide");
+	
+	userModel = layer.open({
+		type : 1,
+		shade : [ 0.5 ],
+		title : '添加药品', //不显示标题
+		area : [ '50%', '70%' ], //显示空间
+		content : $('#addDrug'), //捕获的元素
+		btn : [ '确认', '取消' ],
+		btn1 : function(index, layero) { //或者使用btn1
+			var name=document.getElementById("a.name").value;
+			var size=document.getElementById("a.size").value;
+			var smallclass=document.getElementById("a.smallclass").value;
+			var price=document.getElementById("a.price").value;
+			var batch=document.getElementById("a.batch").value;
+			var location=document.getElementById("a.location").value;
+			var supplier=document.getElementById("a.supplier").value;
+			var functions=document.getElementById("a.functions").value;
+			var taboo=document.getElementById("a.taboo").value;
+			var reaction=document.getElementById("a.reaction").value;
+			var note=document.getElementById("a.note").value;
+			var cfdArray=new Array(name,size,"其它",smallclass,price,supplier,batch,functions,taboo,location,reaction,note);
+			if(name==""){
+				errorMsg("药品名不能为空");
+				return false;
+			}else if(name.indexOf(" ")>=0){
+				errorMsg("药品名不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+
+			if(size==""){
+				errorMsg("药品的规格不能为空");
+				return false;
+			}else if(size.indexOf(' ')>=0){
+				errorMsg("药品的规格不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+
+			if(smallclass==""){
+					errorMsg("药品的分类不能为空");
+					return false;
+				}else if(smallclass.indexOf(' ')>=0){
+					errorMsg("药品的分类不能含有空格(每条信息都不可以有)");
+					return false;
+				}
+			
+			if(price==""){
+				errorMsg("药品的价格不能为空");
+				return false;
+			}else if(price.indexOf(' ')>=0){
+				errorMsg("药品的价格不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+			
+			if(batch==""){
+				errorMsg("药品的批次不能为空");
+				return false;
+			}else if(batch.indexOf(' ')>=0){
+				errorMsg("药品的批次不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+			
+			if(location==""){
+				errorMsg("药品的存放位置不能为空");
+				return false;
+			}else if(location.indexOf(' ')>=0){
+				errorMsg("药品的存放位置不能含有空格(每条信息都不可以有)");
+				return false;
+			}else if(location.substring(0,1)!='X' && location.substring(0,1)!='Y' && location.substring(0,1)!='M' && location.substring(0,1)!='N'){
+				errorMsg("其它药的存放位置只能在X、Y、M、N区");
+				return false;
+			}else if(location.substring(1,2)!='区' || location.substring(3,4)!='架'){
+				errorMsg("其它药的存放位置格式只能为X区X架");
+				return false;
+			}
+			
+			if(supplier==""){
+				errorMsg("药品的供应商不能为空");
+				return false;
+			}else if(price.indexOf(' ')>=0){
+				errorMsg("药品的供应商不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+			
+			if(functions==""){
+				errorMsg("药品的功能主治不能为空");
+				return false;
+			}else if(functions.indexOf(' ')>=0){
+				errorMsg("药品的功能主治不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+			
+			if(taboo==""){
+				errorMsg("药品的禁忌不能为空");
+				return false;
+			}else if(taboo.indexOf(' ')>=0){
+				errorMsg("药品的禁忌不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+			
+			if(reaction==""){
+				errorMsg("药品的不良反应不能为空");
+				return false;
+			}else if(reaction.indexOf(' ')>=0){
+				errorMsg("药品的不良反应不能含有空格(每条信息都不可以有)");
+				return false;
+			}
+
+			$.post("addDrug",{"darray[]":cfdArray}, function(data) {
+				 if(data=="failed"){
+					errorMsg("该药品已存在，请重新输入");
+				}else{
+					layer.close(index);
+					$('#addDrug').addClass("hide");
+					showPage1(cfArray[4]);
+					layer.msg("添加成功");
+				}
+			});
+		
+		},
+		btn2   : function(index) {
+					layer.close(index);
+					$('#addDrug').addClass("hide"); //取消继续隐藏
+					layer.msg("已取消");
+		},
+		cancel : function(index) {
+					layer.close(index);
+					$('#addDrug').addClass("hide"); //取消继续隐藏
+					layer.msg("已取消");
+				}
+		});
+
+}
+
+function Moremes3(id,name,functions,taboo,reaction,note){
+	document.getElementById("DrugmesForm").reset();
+	document.getElementById("m.ID").value=id;
+	document.getElementById("m.name").value=name;
+	document.getElementById("m.functions").value=functions;
+	document.getElementById("m.taboo").value =taboo;
+	document.getElementById("m.reaction").value=reaction;
+	document.getElementById("m.note").value=note;
+	$('#lookDrug').removeClass("hide");
+
+	userModel = layer.open({
+					type : 1,
+					shade : [ 0.5 ],
+					title : '查看药品信息', //不显示标题
+					area : [ '40%', '50%' ], //显示空间
+					content : $('#lookDrug'), //捕获的元素
+					btn : [ '确认' ],
+					yes : function(index, layero) { //或者使用btn1
+								layer.close(index);
+								$('#lookDrug').addClass("hide"); //取消继续隐藏
+								layer.msg("已关闭");
+								showPage3(oArray[4]);
+					},
+					cancel : function(index) {
+								layer.close(index);
+								$('#lookDrug').addClass("hide"); //取消继续隐藏
+								layer.msg("已关闭");
+								showPage3(oArray[4]);
+							}
+					});
+}
+function updateForm3(id,name,size,price,batch,supplier,location){
+	document.getElementById("updateForm").reset();
+	//$("#id").val(id);//字段一一对应，必须填写id
+	document.getElementById("u.ID").value=id;
+	document.getElementById("u.name").value=name;
+	document.getElementById("u.size").value=size;
+	document.getElementById("u.price").value = price;
+	document.getElementById("u.batch").value = batch;
+	document.getElementById("u.location").value=location;
+	document.getElementById("u.supplier").value=supplier;
+	$('#updateDrug').removeClass("hide");
+	
+	userModel = layer.open({
+					type : 1,
+					shade : [ 0.5 ],
+					title : '修改药品信息', //不显示标题
+					area : [ '40%', '40%' ], //显示空间
+					content : $('#updateDrug'), //捕获的元素
+					btn : [ '修改', '取消' ],
+					yes : function(index, layero) { //或者使用btn1
+						var name = document.getElementById("u.name").value;
+						var size = document.getElementById("u.size").value;
+						var price = document.getElementById("u.price").value;
+						var batch = document.getElementById("u.batch").value;
+						var supplier = document.getElementById("u.supplier").value;
+						var id   = document.getElementById("u.ID").value;
+						var location    = document.getElementById("u.location").value;
+						var upArray = new Array(id,name,size,price,batch,supplier,location);
+						if(name==""){
+							errorMsg("药品名不能为空");
+							return false;
+						}else if(name.indexOf(" ")>=0){
+							errorMsg("药品名不能含有空格(每条信息都不可以有)");
+							return false;
+						}
+
+						if(size==""){
+							errorMsg("药品的规格不能为空");
+							return false;
+						}else if(size.indexOf(' ')>=0){
+							errorMsg("药品的规格不能含有空格(每条信息都不可以有)");
+							return false;
+						}
+
+						
+						if(price==""){
+							errorMsg("药品的价格不能为空");
+							return false;
+						}else if(price.indexOf(' ')>=0){
+							errorMsg("药品的价格不能含有空格(每条信息都不可以有)");
+							return false;
+						}
+						
+						if(batch==""){
+							errorMsg("药品的批次不能为空");
+							return false;
+						}else if(batch.indexOf(' ')>=0){
+							errorMsg("药品的批次不能含有空格(每条信息都不可以有)");
+							return false;
+						}else if(location.substring(0,1)!='X' && location.substring(0,1)!='Y' && location.substring(0,1)!='M' && location.substring(0,1)!='N'){
+							errorMsg("其它药的存放位置只能在X、Y、M、N区");
+							return false;
+						}else if(location.substring(1,2)!='区' || location.substring(3,4)!='架'){
+							errorMsg("其它药的存放位置格式只能为X区X架");
+							return false;
+						}
+						
+						if(location==""){
+							errorMsg("药品的存放位置不能为空");
+							return false;
+						}else if(location.indexOf(' ')>=0){
+							errorMsg("药品的存放位置不能含有空格(每条信息都不可以有)");
+							return false;
+						}
+						
+						if(supplier==""){
+							errorMsg("药品的供应商不能为空");
+							return false;
+						}else if(price.indexOf(' ')>=0){
+							errorMsg("药品的供应商不能含有空格(每条信息都不可以有)");
+							return false;
+						}
+						$.post("updateDrug", {"upArray[]":upArray}, function() {
+								layer.close(index);
+								$('#updateDrug').addClass("hide");
+								showPage3(oArray[4]);
+								layer.msg("修改成功");
+						});
+					
+					},
+					btn2   : function(index) {
+								layer.close(index);
+								$('#updateDrug').addClass("hide"); //取消继续隐藏
+								layer.msg("已取消");
+					},
+					cancel : function(index) {
+								layer.close(index);
+								$('#updateDrug').addClass("hide"); //取消继续隐藏
+								layer.msg("已取消");
+							}
+					});
+}
+function Delete3(id) {
+	if(id!=null){
+		layer.confirm('是否确定删除此药品？', {btn : [ '确定', '取消' ]}, function() {
+		$.post("deleteDrug",{"id":id}, function(data) {
+			if(data=="success"){
+				layer.msg("已删除");
+				showPage3(oArray[4]);
+			}else{
+				errorMsg("该药品尚有库存无法删除，请在库存清空后删除库存再删除该药品！");
+				showPage3(oArray[4]);
+			}
+		});
+	}, function() {
+		layer.msg("已取消");
+	});
+		}else{
+			layer.alert("请选择要删除的数据！");
+		}
+}
+//页脚填充函数
+function PageFoot3(data){
+	var dataStr = "";
+	if(data.pageNumber==1)
+	{
+		dataStr +='<li class="paginate_button previous disabled" ';
+		dataStr +='aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a>首页</a></li>';
+		dataStr +='<li class="paginate_button previous disabled" ';
+		dataStr +='aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a>上一页</a></li>';
+	}else
+	{
+		dataStr +='<li class="paginate_button previous" aria-controls="dynamic-table" tabindex="0"';
+		dataStr +='id="dynamic-table_previous"><a href="javascript:showPage3(1)">首页</a></li>';
+		dataStr +='<li class="paginate_button previous" aria-controls="dynamic-table" tabindex="0"';
+		dataStr +='id="dynamic-table_previous"><a href="javascript:showPage3('+data.pageNumber+'-1)">上一页</a></li>';
+	}
+	
+	if(data.pageNumber<4){
+		for(var i = 1;i<=data.totalPage;i++){
+			if(data.pageNumber==i){
+				dataStr += "<li class=\"paginate_button active\"tabindex=\"0\">";
+				dataStr += "<a>"+i+"</a></li>";
+			}else{
+				dataStr += "<li class=\"paginate_button\"tabindex=\"0\">";
+				dataStr += "<a href=\"javascript:showPage3("+i+")\">"+i+"</a></li>";
+			}
+			if(i==5){
+				break;
+			}
+		}
+		if(data.totalPage>5){
+			dataStr +="<li class=\"paginate_button previous disabled\" tabindex=\"0\"><a>...</a></li>";
+		}
+	}else if(data.pageNumber>(data.totalPage-3)){
+		if(data.totalPage<6){
+			for(var i = 1;i<=data.totalPage;i++){
+				if(data.pageNumber==i){
+					dataStr += "<li class=\"paginate_button active\"tabindex=\"0\">";
+					dataStr += "<a>"+i+"</a></li>";
+				}else{
+					dataStr += "<li class=\"paginate_button\"tabindex=\"0\">";
+					dataStr += "<a href=\"javascript:showPage3("+i+")\">"+i+"</a></li>";
+				}
+			}
+		}else{
+			dataStr +="<li class=\"paginate_button previous disabled\" tabindex=\"0\"><a>...</a></li>";			
+			for(var i = data.totalPage-4;i<=data.totalPage;i++){
+				if(data.pageNumber==i){
+					dataStr += "<li class=\"paginate_button active\"tabindex=\"0\">";
+					dataStr += "<a>"+i+"</a></li>";
+				}else{
+					dataStr += "<li class=\"paginate_button\"tabindex=\"0\">";
+					dataStr += "<a href=\"javascript:showPage3("+i+")\">"+i+"</a></li>";
+				}
+			}
+		}
+	}else{
+		dataStr +="<li class=\"paginate_button previous disabled\" tabindex=\"0\"><a>...</a></li>";
+		for(var i = data.pageNumber-2;i<data.pageNumber+3;i++){
+			if(data.pageNumber==i){
+				dataStr += "<li class=\"paginate_button active\"tabindex=\"0\">";
+				dataStr += "<a>"+i+"</a></li>";
+			}else{
+				dataStr += "<li class=\"paginate_button\"tabindex=\"0\">";
+				dataStr += "<a href=\"javascript:showPage3("+i+")\">"+i+"</a></li>";
+			}
+		}
+		dataStr +="<li class=\"paginate_button previous disabled\" tabindex=\"0\"><a>...</a></li>";
+	}
+	if(data.totalPage==data.pageNumber){
+		dataStr +='<li class="paginate_button next disabled" aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a>下一页</a></li>';
+		dataStr +='<li class="paginate_button next disabled" aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a>尾页</a></li>';
+	}else{
+		dataStr +='<li class="paginate_button next" aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a href="javascript:showPage3('+data.pageNumber+'+1)">下一页</a></li>';
+		dataStr +='<li class="paginate_button next" aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a href="javascript:showPage3('+data.totalPage+')">尾页</a></li>';
+	}
+	
+	$("#pagefoot3").html(dataStr);		 //把循环好的页码给替换掉
+};
+
+var oArray = new Array();
+oArray[5]=10;
+function showPage3(curr) {  
+	oArray[4] = curr;
+	$.post("olist", {"oArray[]": oArray}, function(data) {
+		if(data.totalPage==0){
+			$('#no3').removeClass("hide");
+			$('#table3').addClass("hide");
+		}else{
+			$('#no3').addClass("hide");
+			$('#table3').removeClass("hide");
+			o_trList(data.list);
+			PageFoot3(data); 		   //调用的PageFoot方法，循环输出页码连接  
+		}
+	});
+}
+
+
+
+
+</script>
+<!--查看药品信息  -->
+	<div class="hide" id="lookDrug">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-10">
+
+			<form method="post"  id="DrugmesForm">
+				<input type="text" name="m.id" type="hidden" id="id"
+					class="hide">
+				<div class="form-group">
+					<label class="col-sm-2 control-label no-padding-right"
+						for="form-field-1">药品ID:</label>
+					<div class="col-sm-4">
+						<input type="text" readonly="readonly"  class="form-control"
+						 name="m.ID" id="m.ID" value="" /><br>
+					</div>
+					
+					<label class="col-sm-2 control-label no-padding-right"
+						for="form-field-1">药品名:</label>
+					<div class="col-sm-4">
+						<input type="text"  readonly="readonly" class="form-control"
+						 name="m.name" id="m.name" value="" /><br>
+					</div>
+					
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label no-padding-right"
+						for="form-field-1" >功能主治:</label>
+					<div class="col-sm-8">
+						<textarea style="height:250px;" readonly="readonly"class="form-control"
+							name="m.functions"  id="m.functions"></textarea><br>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-4 control-label no-padding-right"
+						for="form-field-1" >禁忌:</label>
+					<div class="col-sm-8">
+						<textarea style="height:250px;"readonly="readonly" class="form-control"
+							name="m.taboo"  id="m.taboo"></textarea><br>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-4 control-label no-padding-right"
+						for="form-field-1" >不良反应:</label>
+					<div class="col-sm-8">
+						<textarea style="height:250px;"readonly="readonly" class="form-control"
+							name="m.reaction"  id="m.reaction"></textarea><br>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-4 control-label no-padding-right"
+						for="form-field-1" >药品备注:</label>
+					<div class="col-sm-8">
+						<textarea style="height:250px;" readonly="readonly"class="form-control"
+							name="m.note"  id="m.note"></textarea>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+<!--修改药品信息  -->
+	<div class="hide" id="updateDrug">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-10">
+
+			<form method="post"  id="updateForm">
+				<input type="text" name="u.id" type="hidden" id="id"
+					class="hide">
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label no-padding-right"
+						for="form-field-1">药品ID:</label>
+					<div class="col-sm-4">
+						<input type="text" readonly="readonly"  class="form-control"
+						 name="u.ID" id="u.ID" value="" /><br>
+					</div>
+					
+					<label class="col-sm-2 control-label no-padding-right"
+						for="form-field-1">药品名:</label>
+					<div class="col-sm-4">
+						<input type="text"  placeholder="必填" class="form-control"
+						 name="u.name" id="u.name" value="" /><br>
+					</div>
+					
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label no-padding-right"
+						for="form-field-1">药品规格:</label>
+					<div class="col-sm-4">
+						<input type="text"  placeholder="必填" class="form-control"
+						 name="u.size" id="u.size" value="" /><br>
+					</div>
+					<label class="col-sm-2 control-label no-padding-right"
+						for="form-field-1">药品单价:</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" name="u.price"
+							id="u.price"  value="" /><br>
+					</div>
+					
+					
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label no-padding-right"
+						for="form-field-1">药品批次:</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" name="u.batch"
+							id="u.batch"  value="" /><br>
+					</div>
+					<label class="col-sm-2 control-label no-padding-right"
+						for="form-field-1">存放位置:</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" name="u.location"
+							id="u.location"  value="" /><br>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label no-padding-right"
+						for="form-field-1">药品供应商:</label>
+					<a href="javascript:selectSupplier()" class="col-sm-2 btn btn-sm btn-info" style="height:32px">选择</a>
+					<div class="col-sm-8">
+						<input type="text" readonly="readonly" class="form-control" name="u.supplier" id="u.supplier"
+							placeholder="必填" value="" /><br>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+<!--添加药品  -->
+	<div class="hide" id="addDrug">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-10">
+
+			<form method="post"  id="addForm">
+				<input type="text" name="a.id" type="hidden" id="a.id"
+					class="hide">
+
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label no-padding-right"
+						for="form-field-1">药品名:</label>
+					<div class="col-sm-4">
+						<input type="text"  placeholder="必填" class="form-control"
+						 name="a.name" id="a.name" value="" /><br>
+					</div>
+					<label class="col-sm-2 control-label no-padding-right"
+						for="form-field-1">药品规格:</label>
+					<div class="col-sm-4">
+						<input type="text"  placeholder="必填" class="form-control"
+						 name="a.size" id="a.size" value="" /><br>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label no-padding-right"
+						for="form-field-1">药品分类:</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" name="m.smallclass"
+							id="a.smallclass"  placeholder="必填" value="" /><br>
+					</div>
+					<label class="col-sm-2 control-label no-padding-right"
+						for="form-field-1">药品单价:</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" name="a.price"
+							id="a.price"  placeholder="必填" value="" /><br>
+					</div>
+					
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label no-padding-right"
+						for="form-field-1">药品批次:</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" name="a.batch"
+							id="a.batch" placeholder="必填" value="" /><br>
+					</div>
+					<label class="col-sm-2 control-label no-padding-right"
+						for="form-field-1">存放位置:</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" name="a.location"
+							id="a.location" placeholder="必填" value="" /><br>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label no-padding-right"
+						for="form-field-1">药品供应商:</label>
+					<a href="javascript:selectSupplier()" class="col-sm-2 btn btn-sm btn-info" style="height:32px">选择</a>
+					<div class="col-sm-8">
+						<input type="text" readonly="readonly" class="form-control" name="a.supplier" id="a.supplier"
+							placeholder="必填" value="" /><br>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-4 control-label no-padding-right"
+						for="form-field-1" >功能主治:</label>
+					<div class="col-sm-8">
+						<textarea style="height:100px;" class="form-control"
+							name="a.functions"  id="a.functions"></textarea>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-4 control-label no-padding-right"
+						for="form-field-1" >禁忌:</label>
+					<div class="col-sm-8">
+						<textarea style="height:100px;" class="form-control"
+							name="a.taboo"  id="a.taboo"></textarea>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-4 control-label no-padding-right"
+						for="form-field-1" >不良反应:</label>
+					<div class="col-sm-8">
+						<textarea style="height:100px;" class="form-control"
+							name="a.reaction"  id="a.reaction"></textarea>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-4 control-label no-padding-right"
+						for="form-field-1" >药品备注:</label>
+					<div class="col-sm-8">
+						<textarea style="height:100px;" class="form-control"
+							name="a.note"  id="a.note"></textarea>
+					</div>
+				</div>
+				
+			</form>
+		</div>
+	</div>
+
+<div class="hide" id="SelectSupplier">
+		<div class="table-header">选择供应商</div><br>
+		<div class="row">
+			<div class="col-sm-10">
+				<form id="selefrom4" class="form-inline" action="rzcksele" method="post">　　　
+					<input type="search" class="form-control input-sm"
+					placeholder="请输入供应商名.." aria-controls="dynamic-table" id="dsupplier">
+					<a onclick="selectSup()" class="btn btn-info btn-sm">查询</a>
+				</form>
+			</div>
+		</div>		<br>									
+		<div id="supplierlist" class="row">
+			<div class="col-xs-12">
+				<div class="row">
+					<div class="col-xs-12">
+						<table class="table table-striped table-bordered table-hover"
+							id="table3">
+							<!--id="simple-table"  -->
+							<thead>
+							<tr role="row">
+						 	<!-- <th><label> <input type="checkbox" class="ace" /> <span class="lbl"></span> </label></th> -->
+							<th class="hidden-480"><span>供应商序号</span></th>
+							<th class="hidden-480"><span>供应商名</span></th>
+							<th class="hidden-480"><span>供应商联系人</span></th>
+							</tr>
+							</thead>
+							<tbody id="Table_4"> </tbody>
+						</table>
+
+					</div>
+					<!-- /.col -->
+				</div>
+			
+							   
+			</div>
+			<div class="col-xs-12">
+				<div class="dataTables_paginate paging_simple_numbers "
+					id="dynamic-table_paginate">
+					<ul class="pagination" id="pagefoot4"></ul>
+				</div>
+			</div>
+		</div>
+		
+</div>
+
+<script type="text/javascript">
+$("table").delegate("tr","mouseover",function(){  
+    $(this).addClass("tr-mouseover");  
+    $(this).css("background-color","#307ecc");   
+});   
+$("table").delegate("tr","mouseout",function(){  
+	$(this).removeClass("tr-mouseover");  
+	$(this).css("background-color","#eee");  
+});
+function selectSup(){
+	supArray[0]=document.getElementById("dsupplier").value;
+	showPage4(1);
+}
+
+var gyslist="";
+function selectSupplier(){
+	$('#dsupplier').val("");
+	supArray[0]="";
+	showPage4(1);
+	$('#SelectSupplier').removeClass("hide");
+	gyslist = layer.open({
+		type : 1,
+		shade : [ 0.5 ],
+		title : '选择药品供应商', //不显示标题
+		area : [ '50%', '80%' ], //显示空间
+		content : $('#SelectSupplier'), //捕获的元素
+		btn : [ '取消' ],
+		btn1 : function(index, layero) { //或者使用btn1
+					layer.close(index);
+					$('#SelectSupplier').addClass("hide"); //取消继续隐藏
+					layer.msg("已取消");
+		
+		},
+		cancel : function(index) {
+					layer.close(index);
+					$('#SelectSupplier').addClass("hide"); //取消继续隐藏
+					layer.msg("已取消");
+				}
+		});
+
+}
+function selectOk(supplier_name){
+	document.getElementById("a.supplier").value=supplier_name;
+	document.getElementById("u.supplier").value=supplier_name;
+	layer.close(gyslist);
+	$('#SelectSupplier').addClass("hide");
+}
+//填充表格的函数
+function sup_trList(data){
+	var dataStr="";
+	$.each(data, function(i, v) {
+		v=data[i];
+		dataStr += sup_stringBuilder(v,i);
+	});
+	// 把拼接好的表格内容填充到指定位置
+	$("#Table_4").html(dataStr);
+}
+
+function sup_stringBuilder(v,i){
+	var dataStr="";
+	i=i+1;
+	dataStr += '<tr onclick="selectOk(\''+v.supplier_name+'\')">';
+	dataStr += '<td>'+ i+'</td>';
+	dataStr += '<td>'+ v.supplier_name +'</td>';
+	dataStr += '<td>'+ v.contact +'</td>';
+	dataStr += '</tr>';
+	return dataStr;
+}
+//页脚填充函数
+function PageFoot4(data){
+	var dataStr = "";
+	if(data.pageNumber==1)
+	{
+		dataStr +='<li class="paginate_button previous disabled" ';
+		dataStr +='aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a>首页</a></li>';
+		dataStr +='<li class="paginate_button previous disabled" ';
+		dataStr +='aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a>上一页</a></li>';
+	}else
+	{
+		dataStr +='<li class="paginate_button previous" aria-controls="dynamic-table" tabindex="0"';
+		dataStr +='id="dynamic-table_previous"><a href="javascript:showPage4(1)">首页</a></li>';
+		dataStr +='<li class="paginate_button previous" aria-controls="dynamic-table" tabindex="0"';
+		dataStr +='id="dynamic-table_previous"><a href="javascript:showPage4('+data.pageNumber+'-1)">上一页</a></li>';
+	}
+	
+	if(data.pageNumber<4){
+		for(var i = 1;i<=data.totalPage;i++){
+			if(data.pageNumber==i){
+				dataStr += "<li class=\"paginate_button active\"tabindex=\"0\">";
+				dataStr += "<a>"+i+"</a></li>";
+			}else{
+				dataStr += "<li class=\"paginate_button\"tabindex=\"0\">";
+				dataStr += "<a href=\"javascript:showPage4("+i+")\">"+i+"</a></li>";
+			}
+			if(i==5){
+				break;
+			}
+		}
+		if(data.totalPage>5){
+			dataStr +="<li class=\"paginate_button previous disabled\" tabindex=\"0\"><a>...</a></li>";
+		}
+	}else if(data.pageNumber>(data.totalPage-3)){
+		if(data.totalPage<6){
+			for(var i = 1;i<=data.totalPage;i++){
+				if(data.pageNumber==i){
+					dataStr += "<li class=\"paginate_button active\"tabindex=\"0\">";
+					dataStr += "<a>"+i+"</a></li>";
+				}else{
+					dataStr += "<li class=\"paginate_button\"tabindex=\"0\">";
+					dataStr += "<a href=\"javascript:showPage4("+i+")\">"+i+"</a></li>";
+				}
+			}
+		}else{
+			dataStr +="<li class=\"paginate_button previous disabled\" tabindex=\"0\"><a>...</a></li>";			
+			for(var i = data.totalPage-4;i<=data.totalPage;i++){
+				if(data.pageNumber==i){
+					dataStr += "<li class=\"paginate_button active\"tabindex=\"0\">";
+					dataStr += "<a>"+i+"</a></li>";
+				}else{
+					dataStr += "<li class=\"paginate_button\"tabindex=\"0\">";
+					dataStr += "<a href=\"javascript:showPage4("+i+")\">"+i+"</a></li>";
+				}
+			}
+		}
+	}else{
+		dataStr +="<li class=\"paginate_button previous disabled\" tabindex=\"0\"><a>...</a></li>";
+		for(var i = data.pageNumber-2;i<data.pageNumber+3;i++){
+			if(data.pageNumber==i){
+				dataStr += "<li class=\"paginate_button active\"tabindex=\"0\">";
+				dataStr += "<a>"+i+"</a></li>";
+			}else{
+				dataStr += "<li class=\"paginate_button\"tabindex=\"0\">";
+				dataStr += "<a href=\"javascript:showPage4("+i+")\">"+i+"</a></li>";
+			}
+		}
+		dataStr +="<li class=\"paginate_button previous disabled\" tabindex=\"0\"><a>...</a></li>";
+	}
+	if(data.totalPage==data.pageNumber){
+		dataStr +='<li class="paginate_button next disabled" aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a>下一页</a></li>';
+		dataStr +='<li class="paginate_button next disabled" aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a>尾页</a></li>';
+	}else{
+		dataStr +='<li class="paginate_button next" aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a href="javascript:showPage4('+data.pageNumber+'+1)">下一页</a></li>';
+		dataStr +='<li class="paginate_button next" aria-controls="dynamic-table" tabindex="0">';
+		dataStr +='<a href="javascript:showPage4('+data.totalPage+')">尾页</a></li>';
+	}
+	
+	$("#pagefoot4").html(dataStr);		 //把循环好的页码给替换掉
+};
+var supArray= new Array();
+function showPage4(curr) {  
+	supArray[1] = curr;
+	$.post("suplist",{"supArray[]":supArray},function(data){
+		sup_trList(data.list);
+		PageFoot4(data); 		   //调用的PageFoot方法，循环输出页码连接  
+	});
+}
+
+//错误信息提示
+function errorMsg(errorInfo) {
+		layer.confirm(errorInfo, {
+			title: '提示信息',
+			btn : [ '确定' ]
+		//按钮
+		}, function(index) {
+			layer.close(index);
+		});
+	}
+</script>
+		
