@@ -40,7 +40,7 @@ public class MainConfig extends JFinalConfig {
 	@Override
 	public void configPlugin(Plugins arg0) {
 		// TODO Auto-generated method stub
-		C3p0Plugin c3p0Plugin = new C3p0Plugin("jdbc:mysql://127.0.0.1:3306/dwms?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull","root","123456");
+		C3p0Plugin c3p0Plugin = new C3p0Plugin("jdbc:mysql://127.0.0.1:3306/dwms?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull","root","121023");
 		arg0.add(c3p0Plugin);
 		// 采用DB+ActiveRecord模式  
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(c3p0Plugin);
