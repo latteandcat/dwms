@@ -48,9 +48,9 @@ public class Login_controller extends Controller{
 		
 	}
 
-	/**
-	 * @param str
-	 * @return
+	/**利用MD5进行加密
+	 * @param str 待加密的字符串
+	 * @return 加密后的字符串
 	 * @throws NoSuchAlgorithmException
 	 * @throws UnsupportedEncodingException
 	 */
